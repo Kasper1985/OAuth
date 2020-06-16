@@ -1,0 +1,18 @@
+﻿@using OAuthServer.Content.Languages;
+
+@{
+    ViewBag.Title = "Logout";
+}
+
+@Styles.Render("~/Content/Styles/Logout.css")
+
+<div class="logout-area">
+    <p class="message">@Translator.Instance.Translate("ACCOUNT.LOGOUT.MESSAGE-MAIN")</p>
+    <p class="hint">@Translator.Instance.Translate("ACCOUNT.LOGOUT.MESSAGE-SECONDARY")</p>
+</div>
+
+<script>
+    setTimeout(function () {
+        window.location = "/account/login";
+    }, 3000);
+</script>

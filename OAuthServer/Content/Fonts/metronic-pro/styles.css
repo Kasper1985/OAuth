@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'metronic-pro';
+  src: url('MetronicPro-Air.otf'); /* IE9 Compatibility Modes */
+  src: url('MetronicPro-Air.otf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'metronic-pro';
+  src: url('MetronicPro-AirItalic.otf'); /* IE9 Compatibility Modes */
+  src: url('MetronicPro-AirItalic.otf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'metronic-pro';
+  src: url('MetronicPro-Light.otf'); /* IE9 Compatibility Modes */
+  src: url('MetronicPro-Light.otf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'metronic-pro';
+  src: url('MetronicPro-LightItalic.otf'); /* IE9 Compatibility Modes */
+  src: url('MetronicPro-LightItalic.otf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'metronic-pro';
+  src: url('MetronicPro-Regular.otf'); /* IE9 Compatibility Modes */
+  src: url('MetronicPro-Regular.otf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'metronic-pro';
+  src: url('MetronicPro-RegularItalic.otf'); /* IE9 Compatibility Modes */
+  src: url('MetronicPro-RegularItalic.otf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'metronic-pro';
+  src: url('MetronicPro-SemiBold.otf'); /* IE9 Compatibility Modes */
+  src: url('MetronicPro-SemiBold.otf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'metronic-pro';
+  src: url('MetronicPro-SemiBoldItalic.otf'); /* IE9 Compatibility Modes */
+  src: url('MetronicPro-SemiBoldItalic.otf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'metronic-pro';
+  src: url('MetronicPro-Bold.otf'); /* IE9 Compatibility Modes */
+  src: url('MetronicPro-Bold.otf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'metronic-pro';
+  src: url('MetronicPro-BoldItalic.otf'); /* IE9 Compatibility Modes */
+  src: url('MetronicPro-BoldItalic.otf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'metronic-pro';
+  src: url('MetronicPro-Black.otf'); /* IE9 Compatibility Modes */
+  src: url('MetronicPro-Black.otf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'metronic-pro';
+  src: url('MetronicPro-BlackItalic.otf'); /* IE9 Compatibility Modes */
+  src: url('MetronicPro-BlackItalic.otf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}

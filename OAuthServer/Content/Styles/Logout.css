@@ -1,0 +1,23 @@
+﻿body {
+    justify-content: center;
+}
+
+.logout-area {
+    padding-top: 50px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.logout-area .message {
+    font-size: 24pt;
+    font-family: metronic-pro, 'Segoe UI', segoe-ui, Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.logout-area .hint {
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+}

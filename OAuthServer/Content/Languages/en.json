@@ -1,0 +1,86 @@
+{
+  "USER-MENU": {
+    "CLIENTS": "Clients",
+    "USER-DATA": "Account",
+    "LOGOUT": "Logout"
+  },
+  "ACCOUNT": {
+    "PERMISSIONS": "Applications that have an access to your account",
+    "LOGIN": {
+      "HEADER": "Login",
+      "LOGIN": "Login"
+    },
+    "LOGOUT": {
+      "MESSAGE-MAIN": "You were successfully logged out",
+      "MESSAGE-SECONDARY": "Shortly you will be redirected to login site"
+    },
+    "USER-DATA": {
+      "HEADER": "Your Account",
+      "AUTH-DATA": {
+        "HEADER": "Authentication data",
+        "ISSUED": "Authenticated since",
+        "EXPIRES": "Expires at",
+        "PERSISTENT": "Is persistent",
+        "YES": "Yes",
+        "NO": "No"
+      },
+      "PROFILE": {
+        "HEADER": "Profile data",
+        "TITLE": "Title",
+        "NAME-FIRST": "First name",
+        "NAME-LAST": "Last name",
+        "PHONE": "Phone",
+        "FAX": "Fax"
+      },
+      "EMAIL": {
+        "HEADER": "EMail data"
+      }
+    }
+  },
+  "CLIENT": {
+    "CLIENTS": {
+      "HEADER": "Registered clients",
+      "NO-CLIENTS": "There is no registered clients.",
+      "FORM": {
+        "TYPE": "Type",
+        "DEVELOPER": "Developer",
+        "SCOPES": "Scopes"
+      }
+    },
+    "ADD": {
+      "HEADER": "Add client",
+      "FORM": {
+        "NAME": "Name",
+        "URI": "URI",
+        "TYPE": "Type",
+        "DEVELOPER": "Developer",
+        "SECRET": "Secret",
+        "SECRET-TOOLTIP": "Please remember the password. If you loose it you will not be able to recover it.",
+        "SECRET-VALIDATION": "Password must contain at least 8 characters, including UPPER/lowercase and numbers.",
+        "SECRET-CONFIRM": "Please enter the same Password as above."
+      }
+    }
+  },
+  "AUTH": {
+    "CLIENT-WISH": "would like to:",
+    "HINT": "By clicking Allow, you allow this application and Pro Care Management GmbH to use your information in accordance with their respective terms of service and privacy policies. You can change this and other Account Permissions at any time."
+  },
+  "NOTIFICATION": {
+    "ACCESS-DENIED": "Access denied",
+    "LOGIN-FAILED": "Login failed",
+    "CREATE-FAILED": "Creation failed",
+    "SAVE-FAILED": "Saving failed",
+    "DELETE-FAILED": "Delete failed",
+    "SAVE-SUCCESS": "Save succeeded",
+    "CREATE-SUCCESS": "Creation succeeded",
+    "DELETE-SUCCESS": "Delete succeeded"
+  },
+  "COMMAND": {
+    "ADD": "Add",
+    "DELETE": "Delete",
+    "SAVE": "Save",
+    "ALLOW": "Allow",
+    "DENY": "Deny",
+    "CANCEL": "Cancel"
+  }
+}

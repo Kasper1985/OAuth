@@ -1,0 +1,52 @@
+﻿.custom-button {
+    border: none;
+    color: white;
+    padding: .7rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: metronic-pro, 'Segoe UI', segoe-ui, Tahoma, Geneva, Verdana, sans-serif;
+    display: inline-block;
+    font-size: 12pt;
+    margin: 4px 2px;
+    cursor: pointer;
+
+    background-image: none;
+    border-radius: 0;
+}
+
+    .custom-button.green {
+        background-color: #4CAF50;
+    }
+        .custom-button.green:hover {
+            background-color: #45a049;
+        }
+
+    .custom-button.blue {
+        background-color: #008cba;
+    }
+        .custom-button.blue:hover {
+            background-color: #007db4;
+        }
+
+    .custom-button.red {
+        background-color: #f44336;
+    }
+        .custom-button.red:hover {
+            background-color: #ed3430;
+        }
+
+    .custom-button.gray {
+        background-color: #e7e7e7;
+        color: black;
+    }
+        .custom-button.gray:hover {
+            background-color: #e0d8e1;
+        }
+
+    .custom-button.black {
+        background-color: #555;
+    }
+        .custom-button.black:hover {
+            background-color: #4e464f;
+        }

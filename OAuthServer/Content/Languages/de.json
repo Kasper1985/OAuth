@@ -1,0 +1,87 @@
+{
+  "USER-MENU": {
+    "CLIENTS": "Applikationen",
+    "USER-DATA": "Benutzerdaten",
+    "LOGOUT": "Abmelden"
+  },
+  "ACCOUNT": {
+    "PERMISSIONS": "Applikationen, die Zugriff auf Ihr Konto haben",
+    "LOGIN": {
+      "HEADER": "Anmeldung",
+      "LOGIN": "Anmelden"
+    },
+    "LOGOUT": {
+      "MESSAGE-MAIN": "Sie wurden erfolgreich abgemeldet",
+      "MESSAGE-SECONDARY": "In kürze werden Sie zu der Login-Seite weitergeleitet"
+    },
+    "USER-DATA": {
+      "HEADER": "Ihre Benutzerdaten",
+      "AUTH-DATA": {
+        "HEADER": "Anmeldedaten",
+        "ISSUED": "Angemeldet seit",
+        "EXPIRES": "Abmeldung am",
+        "PERSISTENT": "Angemeldet bleiben",
+        "YES": "Ja",
+        "NO": "Nein"
+      },
+      "PROFILE": {
+        "HEADER": "Profil",
+        "TITLE": "Titel",
+        "NAME-FIRST": "Vorname",
+        "NAME-LAST": "Nachname",
+        "PHONE": "Tel",
+        "FAX": "Fax"
+      },
+      "EMAIL": {
+        "HEADER": "EMail"
+      }
+    }
+  },
+  "CLIENT": {
+    "CLIENTS": {
+      "HEADER": "Registrierte Applikationen",
+      "NO-CLIENTS": "Registrierte Applikationen sind nicht vorhanden.",
+      "FORM": {
+        "TYPE": "Typ",
+        "DEVELOPER": "Entwickler",
+        "SCOPES": "Berechtigungen"
+      }
+    },
+    "ADD": {
+      "HEADER": "Registrierung einer Applikation",
+      "FORM": {
+        "NAME": "Name",
+        "URI": "URI",
+        "TYPE": "Typ",
+        "DEVELOPER": "Entwickler",
+        "SECRET": "Passwort",
+        "SECRET-TOOLTIP": "Bitte merken Sie sich dieses Passwort. Dies kann nicht wiederhergestellt werden.",
+        "SECRET-VALIDATION": "Das Password muss mindestens 8 Zeichen lang seien und kleinen und großen Buchstaben beinhalten.",
+        "SECRET-CONFIRM": "Bitte geben sie den selben Passwort wie oben."
+      }
+    }
+  },
+  "AUTH": {
+    "CLIENT-WISH": "möchte:",
+    "HINT": "Durch Klicken auf 'Zulassen' gestatten Sie dieser Anwendung und der Pro Care Management GmbH, Ihre Informationen gemäß den jeweiligen Nutzungsbedingungen und Datenschutzrichtlinien zu verwenden. Sie können diese und andere Kontoberechtigungen jederzeit ändern."
+  },
+  "NOTIFICATION": {
+    "ACCESS-DENIED": "Zugriff verweigert",
+    "LOGIN-FAILED": "Anmeldung ist fehlgeschlagen",
+    "CREATE-FAILED": "Erstellung ist fehlgeschlagen",
+    "SAVE-FAILED": "Speichern ist fehlgeschlagen",
+    "DELETE-FAILED": "Löschen ist fehlgeschlagen",
+    "SAVE-SUCCESS": "Erfolgreich gespeichert",
+    "CREATE-SUCCESS": "Erfolgreich erstellt",
+    "DELETE-SUCCESS": "Erfolgreich gelöscht"
+  },
+  "COMMAND": {
+    "ADD": "Hinzufügen",
+    "DELETE": "Löschen",
+    "SAVE": "Speichern",
+    "ALLOW": "Zulassen",
+    "DENY": "Verbieten",
+    "CANCEL": "Abbrechen"
+  }
+
+}

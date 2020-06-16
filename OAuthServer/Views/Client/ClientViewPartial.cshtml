@@ -1,0 +1,51 @@
+﻿@using Models;
+@using OAuthServer.Content.Languages;
+@model Models.Client
+
+@{ 
+    var test = this.User.Identity;
+}
+
+<div class="wrap-collapsible collapsed">
+    <div class="collapsible client-header-info">
+        <div>@Model.Name</div>
+        <div>@Model.URI</div>
+        <div class="flex-span"></div>
+        <div class="collapsible-symbol"></div>
+    </div>
+    <div class="collapsible-content client-detailed-info">
+        <div class="client-property">
+            <div><h4>ID</h4></div>
+            <div><span>@Html.DisplayFor(model => model.ID)</span></div>
+        </div>
+        <div class="client-property">
+            <div><h4>@Translator.Instance.Translate("CLIENT.CLIENTS.FORM.TYPE")</h4></div>
+            <div><span>@Html.DisplayFor(model => model.Type)</span></div>
+        </div>
+        <div class="client-property">
+            <div><h4>@Translator.Instance.Translate("CLIENT.CLIENTS.FORM.DEVELOPER")</h4></div>
+            <div><span>@Html.DisplayFor(model => model.Developer)</span></div>
+        </div>
+        <div class="wrap-collapsible collapsed">
+            <div class="collapsible invert-colors scopes-header-info">
+                <div>@Translator.Instance.Translate("CLIENT.CLIENTS.FORM.SCOPES")</div>
+                <div class="flex-span"></div>
+                <div class="collapsible-symbol"></div>
+            </div>
+            <div class="collapsible-content scopes-detailed-info">
+                @foreach (var userScope in ViewData["userScopes"] as IEnumerable<UserScope>)
+                {
+                    Html.RenderPartial("UserScopeViewPartial", userScope);
+                }
+            </div>
+        </div>
+
+        @if (Model.UserID == (int)ViewData["userId"])
+        {
+            <div class="client-actions">
+                @Html.ActionLink(@Translator.Instance.Translate("COMMAND.DELETE"), "Delete", "Client", new { id = Model.ID }, new { @class = "custom-button red" })
+            </div>
+        }
+    </div>
+</div>
+    

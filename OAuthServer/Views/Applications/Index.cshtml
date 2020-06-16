@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Applications";
+
+}
+
+@Styles.Render("~/Content/Styles/Applications.css")
+
+<div class="applications">
+    @{ 
+        foreach (var app in ViewData["applications"] as List<OAuthServer.Models.Application>)
+        {
+            @Html.Partial("PartialTile", app)
+        }
+    }
+</div>

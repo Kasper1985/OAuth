@@ -1,0 +1,60 @@
+﻿@using System.Configuration;
+@using OAuthServer.Models.Enumerations;
+@using OAuthServer.Content.Languages;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="~/Content/Images/favicon.png" type="image/x-icon" />
+    <title>@ViewBag.Title</title>
+    <base href="/">
+    @Styles.Render("~/Content/Styles/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["corner-ribbon"]))
+    {
+        <div class="corner-ribbon top-right sticky green shadow">@ConfigurationManager.AppSettings["corner-ribbon"]</div>
+    }
+
+    @if (string.Compare(ViewBag.Title, "login", ignoreCase: true, culture: System.Globalization.CultureInfo.InvariantCulture) != 0 &&
+         string.Compare(ViewBag.Title, "logout", ignoreCase: true, culture: System.Globalization.CultureInfo.InvariantCulture) != 0)
+    {
+        @Html.Partial("_HeaderNavBar")
+    }
+
+    <div class="content-area">
+        @RenderBody()
+    </div>
+
+    @if (ViewData.ContainsKey("notification"))
+    {
+        (string header, string content, Status status) = ((string, string, Status))ViewData["notification"];
+        <div class="notify top-left do-show" data-notification-status="@status.ToString().ToLower()">
+            <div class="error-header">@Translator.Instance.Translate(header)</div>
+        </div>
+        if (!string.IsNullOrEmpty(content))
+        {
+            <script type="text/javascript">
+                var status = '@status.ToString().ToLower()',
+                    content = '@content.Replace("\r\n", "↵")';
+                switch (status) {
+                    case 'warning':
+                        console.warn(content.split('↵'));
+                        break;
+                
+                    case 'error':
+                        console.error(content.split('↵'));
+                        break;
+                
+                    default:
+                        console.log(content.split('↵'));
+                        break;
+                }
+            </script>
+        }
+    }
+</body>
+</html>

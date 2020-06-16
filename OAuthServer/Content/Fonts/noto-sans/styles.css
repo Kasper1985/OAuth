@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'noto-sans';
+  src: url('NotoSans-Regular.ttf'); /* IE9 Compatibility Modes */
+  src: url('NotoSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'noto-sans';
+  src: url('NotoSans-Bold.ttf'); /* IE9 Compatibility Modes */
+  src: url('NotoSans-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'noto-sans';
+  src: url('NotoSans-Italic.ttf'); /* IE9 Compatibility Modes */
+  src: url('NotoSans-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'noto-sans';
+  src: url('NotoSans-BoldItalic.ttf'); /* IE9 Compatibility Modes */
+  src: url('NotoSans-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}

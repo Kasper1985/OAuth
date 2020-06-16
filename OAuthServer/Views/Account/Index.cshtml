@@ -1,0 +1,88 @@
+﻿@using OAuthServer.Models;
+@using OAuthServer.Content.Languages;
+
+@model Models.User
+
+@{
+    ViewBag.Title = "Account";
+    var authData = ViewData["auth-data"] as AuthData;
+}
+
+@Styles.Render("~/Content/Styles/Account.css")
+
+<div class="user-data">
+    <div class="header">
+        <h2>@Translator.Instance.Translate("ACCOUNT.USER-DATA.HEADER")</h2>
+    </div>
+    <div class="user-data-content">
+        <div class="data-container">
+            <div class="data-container-header">
+                <h3>@Translator.Instance.Translate("ACCOUNT.USER-DATA.AUTH-DATA.HEADER")</h3>
+            </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><h4>ID</h4></td>
+                        <td>@authData.UserIdentifier</td>
+                    </tr>
+                    <tr>
+                        <td><h4>@Translator.Instance.Translate("ACCOUNT.USER-DATA.AUTH-DATA.ISSUED")</h4></td>
+                        <td>@authData.AuthTime.ToString("yyyy MMM dd HH:mm:ss")</td>
+                    </tr>
+                    <tr>
+                        <td><h4>@Translator.Instance.Translate("ACCOUNT.USER-DATA.AUTH-DATA.EXPIRES")</h4></td>
+                        <td>@authData.AuthExpires.ToString("yyyy MMM dd HH:mm:ss")</td>
+                    </tr>
+                    <tr>
+                        <td><h4>@Translator.Instance.Translate("ACCOUNT.USER-DATA.AUTH-DATA.PERSISTENT")</h4></td>
+                        <td>@(authData.IsPersistent ? Translator.Instance.Translate("ACCOUNT.USER-DATA.AUTH-DATA.YES") : Translator.Instance.Translate("ACCOUNT.USER-DATA.AUTH-DATA.NO"))</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="data-container">
+            <div class="data-container-header">
+                <h3>@Translator.Instance.Translate("ACCOUNT.USER-DATA.PROFILE.HEADER")</h3>
+            </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><h4>@Translator.Instance.Translate("ACCOUNT.USER-DATA.PROFILE.TITLE")</h4></td>
+                        <td>@Model.Title</td>
+                    </tr>
+                    <tr>
+                        <td><h4>@Translator.Instance.Translate("ACCOUNT.USER-DATA.PROFILE.NAME-FIRST")</h4></td>
+                        <td>@Model.NameFirst</td>
+                    </tr>
+                    <tr>
+                        <td><h4>@Translator.Instance.Translate("ACCOUNT.USER-DATA.PROFILE.NAME-LAST")</h4></td>
+                        <td>@Model.NameLast</td>
+                    </tr>
+                    <tr>
+                        <td><h4>@Translator.Instance.Translate("ACCOUNT.USER-DATA.PROFILE.PHONE")</h4></td>
+                        <td>@Model.Phone</td>
+                    </tr>
+                    <tr>
+                        <td><h4>@Translator.Instance.Translate("ACCOUNT.USER-DATA.PROFILE.FAX")</h4></td>
+                        <td>@Model.Fax</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="data-container">
+            <div class="data-container-header">
+                <h3>@Translator.Instance.Translate("ACCOUNT.USER-DATA.EMAIL.HEADER")</h3>
+            </div>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><h4>EMail</h4></td>
+                        <td>@Model.EMail</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

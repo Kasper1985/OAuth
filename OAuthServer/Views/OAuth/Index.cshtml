@@ -1,0 +1,45 @@
+﻿@using Models;
+@using OAuthServer.Content.Languages;
+
+@{
+    ViewBag.Title = "Authorization";
+
+    IEnumerable<Scope> scopes = ViewData["scopes"] as IEnumerable<Scope>;
+    Client client = ViewData["client"] as Client ?? new Client();
+}
+
+@Styles.Render("~/Content/Styles/Auth.css")
+
+<div class="auth-area">
+    <form method="post" class="auth-form">
+        <div class="application-logo">
+            <img src="~/Content/Images/favicon.png" alt="@client.Name" />
+        </div>
+        <div class="client-auth-message">
+            <h2><span class="client-info" title="from @client.Developer">@client.Name</span> @Translator.Instance.Translate("AUTH.CLIENT-WISH")</h2>
+        </div>
+        <div class="scopes">
+            @if (scopes?.Count() > 0)
+            {
+                foreach (Scope scope in scopes)
+                {
+                    <div>
+                        <label class="custom-checkbox">
+                            <input id="@scope.ID" name="@scope.Name" type="checkbox" checked />
+                            <span class="checkmark"></span>@scope.Description
+                        </label>
+                    </div>
+                }
+            }
+        </div>
+        <div class="hints">
+            <p>
+                @Translator.Instance.Translate("AUTH.HINT")
+            </p>
+        </div>
+        <div class="buttons">
+            <input type="submit" name="submit.allow" value="@Translator.Instance.Translate("COMMAND.ALLOW")" class="custom-button red" />
+            <input type="submit" name="submit.deny" value="@Translator.Instance.Translate("COMMAND.DENY")" class="custom-button gray" />
+        </div>
+    </form>
+</div>

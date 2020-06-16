@@ -1,0 +1,32 @@
+﻿@using Models;
+@using OAuthServer.Content.Languages;
+
+@{
+    ViewBag.Title = "Clients";
+    IEnumerable<UserScope> userScopes = ViewData["userScopes"] as IEnumerable<UserScope>;
+}
+
+@Styles.Render("~/Content/Styles/Client.css")
+
+<div class="clients">
+    <div class="header">
+        @Html.ActionLink(Translator.Instance.Translate("COMMAND.ADD"), "Add", "Client", null, new { @class = "custom-button gray" })
+        <h2>@Translator.Instance.Translate("CLIENT.CLIENTS.HEADER")</h2>
+    </div>
+    <div class="content">
+        @if (ViewData["clients"] != null)
+        {
+            foreach (var client in ViewData["clients"] as IEnumerable<Client>)
+            {
+                Html.RenderPartial("ClientViewPartial", client, new ViewDataDictionary { { "userScopes", userScopes.Where(us => us.ClientID == client.ID) }, { "userId", ViewData["userId"] } });
+            }
+        }
+        else
+        {
+            <span class="message">@Translator.Instance.Translate("CLIENT.CLIENTS.NO-CLIENTS")</span>
+        }
+    </div>
+</div>
+
+
+@Scripts.Render("~/Content/Scripts/collapsible.js")

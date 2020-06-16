@@ -1,0 +1,20 @@
+﻿@using OAuthServer.Content.Languages;
+
+<div class="navbar navbar-fixed-top">
+    <div class="container">
+        <a href="Applications/Index">
+            <div class="logo">
+            </div>
+        </a>
+        <div class="navbar-header">
+            <div class="dropdown">
+                <img src="~/Content/Images/avatar-icon.png" alt="user" class="dd-button avatar"/>
+                <ul class="dd-menu">
+                    <li>@Html.ActionLink(Translator.Instance.Translate("USER-MENU.CLIENTS"), "Index", "Client")</li>
+                    <li>@Html.ActionLink(Translator.Instance.Translate("USER-MENU.USER-DATA"), "Index", "Account")</li>
+                    <li>@Html.ActionLink(Translator.Instance.Translate("USER-MENU.LOGOUT"), "Logout", "Account")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

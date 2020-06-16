@@ -1,0 +1,35 @@
+﻿@using OAuthServer.Content.Languages;
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@Styles.Render("~/Content/Styles/Login.css")
+
+<div class="login-area">
+    <form method="post" class="login-form">
+        <div class="pcm-logo">
+            <img src="~/Content/Images/logo.png" alt="pcm" />
+        </div>
+        <div class="title">
+            <h2>@Translator.Instance.Translate("ACCOUNT.LOGIN.HEADER")</h2>
+        </div>
+        <div class="floating-label">
+            @Html.TextBox("login", "", new { placeholder = " " })
+            <label for="login">Login</label>
+        </div>
+        <div class="floating-label">
+            @Html.Password("password", "", new { placeholder = " ", autocomplete = "off" })
+            <label for="password">Password</label>
+        </div>
+        @*<div class="remember-me">
+            <label class="checkbox-container">
+                <input id="isPersistent" name="isPersistent" type="checkbox" />
+                <span class="checkmark"></span>Remember me
+            </label>
+        </div>*@
+        <div>
+            <input class="custom-button red" name="submit.login" value="@Translator.Instance.Translate("ACCOUNT.LOGIN.LOGIN")" type="submit" />
+        </div>
+    </form>
+</div>

@@ -1,0 +1,13 @@
+﻿@model Models.UserScope
+
+<div class="user-scope">
+    <div><h5>@Model.Scope.Name</h5></div>
+    <div class="scope-description">@Model.Scope.Description</div>
+    <div>
+        <label class="switch">
+            <input type="checkbox" @(Model.Grant ? "checked" : "") />
+            <span class="slider"></span>
+        </label>
+        
+    </div>
+</div>

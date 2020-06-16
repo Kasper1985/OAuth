@@ -1,0 +1,42 @@
+﻿using System.Configuration;
+using System.Web.Http;
+using System.Web.Mvc;
+using System.Linq;
+
+using Unity;
+using Unity.AspNet.Mvc;
+using Unity.Injection;
+
+using BusinessLogic;
+using BusinessLogic.Interfaces;
+using Data.Interfaces;
+using Data.MSSQL;
+
+namespace OAuthServer
+{
+    public partial class Startup
+    {
+        public void ConfigureUnity(HttpConfiguration config)
+        {
+            var container = new UnityContainer();
+
+            // Business logic implementations
+            container.RegisterType<IUserLogic, UserLogic>()
+                     .RegisterType<IOAuth2Logic, OAuth2Logic>();
+
+            string connectionString = ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["DB"]].ConnectionString;
+
+            // Data access logic implementations
+            container.RegisterType<IUserSource, UserSource>(new InjectionConstructor(connectionString))
+                     .RegisterType<IOAuth2Source, OAuth2Source>(new InjectionConstructor(connectionString));
+
+            // Web API Dependency Resolver
+            config.DependencyResolver = new Unity.AspNet.WebApi.UnityDependencyResolver(container);
+
+            // MVC Dependency Resolver
+            FilterProviders.Providers.Remove(FilterProviders.Providers.OfType<FilterAttributeFilterProvider>().First());
+            FilterProviders.Providers.Add(new UnityFilterAttributeFilterProvider(container));
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+        }
+    }
+}

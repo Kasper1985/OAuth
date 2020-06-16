@@ -1,0 +1,30 @@
+﻿.user-data {
+    width: 100%;
+    padding: 0 2rem;
+}
+
+    .user-data .header {
+        text-align: center;
+        position: relative;
+    }
+
+    .user-data .user-data-content {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-around;
+    }
+
+        .user-data .user-data-content .data-container {
+            padding: 2rem 4rem;
+            border: 1px solid #e6e6e6;
+            border-radius: 15px;
+            background-color: #fbfbfb;
+        }
+
+            .user-data .user-data-content .data-container .data-container-header {
+                border-bottom: 1px solid #e6e6e6;
+            }
+
+            .user-data .user-data-content .data-container table tbody tr td:first-child {
+                padding-right: 10px;
+            }

@@ -1,0 +1,95 @@
+﻿@import url("../Fonts/noto-sans/styles.css");
+@import url("../Fonts/segoe-ui/styles.css");
+@import url("../Fonts/metronic-pro/styles.css");
+
+html,
+body {
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', segoe-ui, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: metronic-pro, 'Segoe UI', segoe-ui, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.content-area {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+a.button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+
+    margin: 2px 0;
+
+    border: solid 1px transparent;
+    border-radius: 4px;
+
+    padding: .5em 1em;
+
+    color: initial;
+    background-color: #DDD;
+}
+
+/* Bootstrap parts */
+.navbar {
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    background-color: #e6e6e6;
+    display: flex;
+    align-items: center;
+}
+
+    .navbar .container {
+        height: 40px;
+        padding-right: 10rem;
+        padding-left: 2rem;
+        flex-grow: 1;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    .navbar .container .logo {
+        height: 40px;
+        width: 164px;
+        background: center url('../Images/logo.png') no-repeat;
+        background-size: contain;
+    }
+
+    .navbar .container .avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+        .navbar .container .dropdown .dd-menu li a {
+            display: block;
+            margin: -10px -20px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: inherit;
+            text-transform: uppercase;
+            font-family: metronic-pro, 'Segoe UI', segoe-ui, Tahoma, Verdana, Geneva, sans-serif;
+            font-size: 10pt;
+        }
+
+.navbar-fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    border-width: 0 0 1px;
+    z-index: 10;
+}

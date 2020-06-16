@@ -1,0 +1,2602 @@
+﻿@charset "UTF-8";
+
+@font-face {
+  font-family: "pcm-outline-webicons";
+  src:url("pcm-outline-webicons.eot");
+  src:url("pcm-outline-webicons.eot?#iefix") format("embedded-opentype"),
+    url("pcm-outline-webicons.woff") format("woff"),
+    url("pcm-outline-webicons.ttf") format("truetype"),
+    url("pcm-outline-webicons.svg#pcm-outline-webicons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "pcm-outline-webicons" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="pcm-ol-"]:before,
+[class*=" pcm-ol-"]:before {
+  font-family: "pcm-outline-webicons" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.pcm-ol-plus:before {
+  content: "\d6";
+}
+.pcm-ol-minus:before {
+  content: "\c4";
+}
+.pcm-ol-delete:before {
+  content: "\dc";
+}
+.pcm-ol-kreis-auswahl:before {
+  content: "\f204";
+}
+.pcm-ol-kreis-leer:before {
+  content: "\d0";
+}
+.pcm-ol-kreis-auswahl-bestaetigt:before {
+  content: "\f205";
+}
+.pcm-ol-ok:before {
+  content: "\b5";
+}
+.pcm-ol-intervalle:before {
+  content: "\23f3";
+}
+.pcm-ol-at-zeichen:before {
+  content: "\40";
+}
+.pcm-ol-stethoskop:before {
+  content: "\f130";
+}
+.pcm-ol-stoerung:before {
+  content: "\58";
+}
+.pcm-ol-kreispfeil-li-o:before {
+  content: "\f21b";
+}
+.pcm-ol-kreispfeil-li-u:before {
+  content: "\f21a";
+}
+.pcm-ol-kreispfeil-re-o:before {
+  content: "\f21c";
+}
+.pcm-ol-kreispfeil-re-u:before {
+  content: "\f219";
+}
+.pcm-ol-austauschen-gu:before {
+  content: "\f504";
+}
+.pcm-ol-austauschen-iu:before {
+  content: "\f503";
+}
+.pcm-ol-kreispfeil1-gu-rueckgaengig:before {
+  content: "\f507";
+}
+.pcm-ol-kreispfeil1-iu-aktualisieren:before {
+  content: "\f508";
+}
+.pcm-ol-kreispfeil2-gu-rueckgaengig:before {
+  content: "\f505";
+}
+.pcm-ol-kreispfeil2-iu-aktualisieren:before {
+  content: "\f506";
+}
+.pcm-ol-rotation-gu:before {
+  content: "\f509";
+}
+.pcm-ol-rotation-iu:before {
+  content: "\f50a";
+}
+.pcm-ol-recycling:before {
+  content: "\2672";
+}
+.pcm-ol-kreispfeil3-gu-rueckgaengig:before {
+  content: "\f502";
+}
+.pcm-ol-kreispfeil3-iu-aktualisieren:before {
+  content: "\f501";
+}
+.pcm-ol-log-out-exit:before {
+  content: "\30";
+}
+.pcm-ol-pfeil-links:before {
+  content: "\35";
+}
+.pcm-ol-pfeil-oben:before {
+  content: "\36";
+}
+.pcm-ol-pfeil-rechts:before {
+  content: "\38";
+}
+.pcm-ol-pfeil-unten:before {
+  content: "\37";
+}
+.pcm-ol-pfeil-oben-li:before {
+  content: "\34";
+}
+.pcm-ol-pfeil-oben-re:before {
+  content: "\39";
+}
+.pcm-ol-pfeil-unten-li:before {
+  content: "\33";
+}
+.pcm-ol-pfeil-unten-re:before {
+  content: "\3a";
+}
+.pcm-ol-outlook:before {
+  content: "\7c";
+}
+.pcm-ol-outlook-import:before {
+  content: "\f572";
+}
+.pcm-ol-pdf-adobeacrobat:before {
+  content: "\f27a";
+}
+.pcm-ol-pdf-import:before {
+  content: "\f27c";
+}
+.pcm-ol-pdf-export:before {
+  content: "\f27b";
+}
+.pcm-ol-piks:before {
+  content: "\f27d";
+}
+.pcm-ol-gv-cat:before {
+  content: "\f27e";
+}
+.pcm-ol-deleatur-kz:before {
+  content: "\e001";
+}
+.pcm-ol-fehlt-noch-kz:before {
+  content: "\e002";
+}
+.pcm-ol-jw1:before {
+  content: "\e005";
+}
+.pcm-ol-jw2:before {
+  content: "\e004";
+}
+.pcm-ol-achtung:before {
+  content: "\26a0";
+}
+.pcm-ol-apfel:before {
+  content: "\f34e";
+}
+.pcm-ol-naehrwert:before {
+  content: "\f32a";
+}
+.pcm-ol-taschenrechner:before {
+  content: "\43";
+}
+.pcm-ol-erdbeere-diaetetik:before {
+  content: "\f353";
+}
+.pcm-ol-karotte:before {
+  content: "\f955";
+}
+.pcm-ol-zwiebel:before {
+  content: "\f35a";
+}
+.pcm-ol-zitrone:before {
+  content: "\f34b";
+}
+.pcm-ol-tropfen-spurenelemente:before {
+  content: "\3c";
+}
+.pcm-ol-haeuser-top:before {
+  content: "\f163";
+}
+.pcm-ol-paragraph:before {
+  content: "\a7";
+}
+.pcm-ol-regeleigenschaften:before {
+  content: "\f247";
+}
+.pcm-ol-euro-zeichen:before {
+  content: "\20ac";
+}
+.pcm-ol-fragezeichen:before {
+  content: "\3f";
+}
+.pcm-ol-merkhilfe:before {
+  content: "\2d";
+}
+.pcm-ol-idee:before {
+  content: "\3d";
+}
+.pcm-ol-ausrufezeichen:before {
+  content: "\21";
+}
+.pcm-ol-information:before {
+  content: "\69";
+}
+.pcm-ol-supportanfrage:before {
+  content: "\2e";
+}
+.pcm-ol-schritt-zurueck:before {
+  content: "\f20a";
+}
+.pcm-ol-stempel-erledigt:before {
+  content: "\f4b4";
+}
+.pcm-ol-zoom:before {
+  content: "\f14f";
+}
+.pcm-ol-darstellung-baum:before {
+  content: "\f330";
+}
+.pcm-ol-darstellung-einzeln:before {
+  content: "\f331";
+}
+.pcm-ol-darstellung-artikelgruppen:before {
+  content: "\f334";
+}
+.pcm-ol-artikel-gruppen:before {
+  content: "\f292";
+}
+.pcm-ol-artikel:before {
+  content: "\f290";
+}
+.pcm-ol-artikel-info:before {
+  content: "\f294";
+}
+.pcm-ol-artikel-tausch:before {
+  content: "\f297";
+}
+.pcm-ol-artikel-top:before {
+  content: "\f161";
+}
+.pcm-ol-artikelwarengruppen:before {
+  content: "\f296";
+}
+.pcm-ol-warengruppe:before {
+  content: "\f29b";
+}
+.pcm-ol-warengruppe-top:before {
+  content: "\f165";
+}
+.pcm-ol-konvertieren-sonderformate:before {
+  content: "\f29c";
+}
+.pcm-ol-position-location:before {
+  content: "\28";
+}
+.pcm-ol-zuordnung-automatisch:before {
+  content: "\f313";
+}
+.pcm-ol-zuordnung-ein-element:before {
+  content: "\f311";
+}
+.pcm-ol-zuordnung:before {
+  content: "\f310";
+}
+.pcm-ol-mikroskop:before {
+  content: "\f52c";
+}
+.pcm-ol-schnittstelle:before {
+  content: "\f24f";
+}
+.pcm-ol-login-letztes:before {
+  content: "\f5d4";
+}
+.pcm-ol-adresse:before {
+  content: "\2709";
+}
+.pcm-ol-pcm-talk:before {
+  content: "\f253";
+}
+.pcm-ol-tastatur:before {
+  content: "\2328";
+}
+.pcm-ol-monitor:before {
+  content: "\f5a5";
+}
+.pcm-ol-monitor-pcm:before {
+  content: "\f5af";
+}
+.pcm-ol-kreditkarte:before {
+  content: "\f4b8";
+}
+.pcm-ol-uhr:before {
+  content: "\f558";
+}
+.pcm-ol-wecker:before {
+  content: "\23f0";
+}
+.pcm-ol-uhrarmband:before {
+  content: "\231a";
+}
+.pcm-ol-uhr-stopuhr:before {
+  content: "\23f1";
+}
+.pcm-ol-waage-feinwaage:before {
+  content: "\2696";
+}
+.pcm-ol-bueroklammer:before {
+  content: "\f4ce";
+}
+.pcm-ol-sicherheitsnadel:before {
+  content: "\f4cf";
+}
+.pcm-ol-faehnchen-grau:before {
+  content: "\f3f5";
+}
+.pcm-ol-faehnchen-pcm:before {
+  content: "\f3ff";
+}
+.pcm-ol-faehnchen-punkte:before {
+  content: "\f3f6";
+}
+.pcm-ol-faehnchen-schwarz:before {
+  content: "\f3f3";
+}
+.pcm-ol-faehnchen-weiss:before {
+  content: "\f3f4";
+}
+.pcm-ol-pin-griff-schraeg:before {
+  content: "\2f";
+}
+.pcm-ol-pin-rund-schraeg:before {
+  content: "\5c";
+}
+.pcm-ol-geldsack:before {
+  content: "\5e";
+}
+.pcm-ol-vorkontierung:before {
+  content: "\f31a";
+}
+.pcm-ol-barcode:before {
+  content: "\f11f";
+}
+.pcm-ol-neu:before {
+  content: "\f180";
+}
+.pcm-ol-neu-warengruppe:before {
+  content: "\f184";
+}
+.pcm-ol-daten-it:before {
+  content: "\f111";
+}
+.pcm-ol-server:before {
+  content: "\f110";
+}
+.pcm-ol-expander-ob-unt:before {
+  content: "\f210";
+}
+.pcm-ol-expander-re-li:before {
+  content: "\f211";
+}
+.pcm-ol-winkel-li-ende:before {
+  content: "\44";
+}
+.pcm-ol-winkel-li:before {
+  content: "\45";
+}
+.pcm-ol-winkel-ob:before {
+  content: "\46";
+}
+.pcm-ol-winkel-re-ende:before {
+  content: "\49";
+}
+.pcm-ol-winkel-re:before {
+  content: "\48";
+}
+.pcm-ol-winkel-unt:before {
+  content: "\47";
+}
+.pcm-ol-back-to-top:before {
+  content: "\f212";
+}
+.pcm-ol-dreieck-schmal-li:before {
+  content: "\75";
+}
+.pcm-ol-dreieck-schmal-ob:before {
+  content: "\76";
+}
+.pcm-ol-dreieck-schmal-re:before {
+  content: "\78";
+}
+.pcm-ol-dreieck-schmal-unt:before {
+  content: "\77";
+}
+.pcm-ol-dreieck-schmal-re-unt:before {
+  content: "\7a";
+}
+.pcm-ol-dreieck-li:before {
+  content: "\65";
+}
+.pcm-ol-dreieck-ob:before {
+  content: "\66";
+}
+.pcm-ol-dreieck-re:before {
+  content: "\68";
+}
+.pcm-ol-dreieck-re-unt:before {
+  content: "\6a";
+}
+.pcm-ol-dreieck-unt:before {
+  content: "\67";
+}
+.pcm-ol-dreieck-breit-li:before {
+  content: "\e0";
+}
+.pcm-ol-dreieck-breit-ob:before {
+  content: "\e1";
+}
+.pcm-ol-dreieck-breit-re:before {
+  content: "\e2";
+}
+.pcm-ol-dreieck-breit-unt:before {
+  content: "\e3";
+}
+.pcm-ol-schluessel-neu:before {
+  content: "\f511";
+}
+.pcm-ol-schluessel-alt:before {
+  content: "\f5dd";
+}
+.pcm-ol-schloss-offen-3:before {
+  content: "\f3f9";
+}
+.pcm-ol-schloss-offen-2:before {
+  content: "\f52b";
+}
+.pcm-ol-schloss-offen-1:before {
+  content: "\f513";
+}
+.pcm-ol-schloss-geschlossen:before {
+  content: "\f512";
+}
+.pcm-ol-buch-stapel:before {
+  content: "\f4d8";
+}
+.pcm-ol-ecare-oo-appl:before {
+  content: "\f277";
+}
+.pcm-ol-elan-offo-appl:before {
+  content: "\f278";
+}
+.pcm-ol-kaestchen-leer:before {
+  content: "\f0";
+}
+.pcm-ol-ablage-archiv:before {
+  content: "\f236";
+}
+.pcm-ol-ablage-leer:before {
+  content: "\54";
+}
+.pcm-ol-ablage-folder:before {
+  content: "\f234";
+}
+.pcm-ol-hersteller-fabrik:before {
+  content: "\f3ed";
+}
+.pcm-ol-exportobjekte:before {
+  content: "\f23c";
+}
+.pcm-ol-werkzeug:before {
+  content: "\2a";
+}
+.pcm-ol-teller-besteck-1:before {
+  content: "\f374";
+}
+.pcm-ol-zutaten:before {
+  content: "\f281";
+}
+.pcm-ol-tasse-kaffee:before {
+  content: "\2615";
+}
+.pcm-ol-tasse-tee:before {
+  content: "\f375";
+}
+.pcm-ol-thermometer-temperatur:before {
+  content: "\4b";
+}
+.pcm-ol-kaestchen-produktfoto:before {
+  content: "\f24b";
+}
+.pcm-ol-kaestchen-foto:before {
+  content: "\f24c";
+}
+.pcm-ol-kaestchen-personenfoto:before {
+  content: "\f24d";
+}
+.pcm-ol-telefonhoerer:before {
+  content: "\f4de";
+}
+.pcm-ol-telefon-mobile:before {
+  content: "\f4f1";
+}
+.pcm-ol-telefon-mobile-wifi:before {
+  content: "\f4f2";
+}
+.pcm-ol-telefon-mobileschuettelgeste:before {
+  content: "\f4f3";
+}
+.pcm-ol-diagramm-absteigend:before {
+  content: "\f470";
+}
+.pcm-ol-diagramm-aufsteigend:before {
+  content: "\f471";
+}
+.pcm-ol-diagramm-web-statistik:before {
+  content: "\f472";
+}
+.pcm-ol-diagramm-naehrwert:before {
+  content: "\f32c";
+}
+.pcm-ol-sortieren-absteigend:before {
+  content: "\42";
+}
+.pcm-ol-sortieren-aufsteigend:before {
+  content: "\62";
+}
+.pcm-ol-bombe:before {
+  content: "\f4a3";
+}
+.pcm-ol-pool:before {
+  content: "\4e";
+}
+.pcm-ol-pool-ball:before {
+  content: "\f6ca";
+}
+.pcm-ol-delphin:before {
+  content: "\f42c";
+}
+.pcm-ol-scannen:before {
+  content: "\f11d";
+}
+.pcm-ol-stapler-wareneingang-geprueft:before {
+  content: "\f69d";
+}
+.pcm-ol-stapler-wareneingang:before {
+  content: "\3b";
+}
+.pcm-ol-stapler-wareneingang-reklamation:before {
+  content: "\f69b";
+}
+.pcm-ol-stapler-wareneingang-suchen:before {
+  content: "\f69e";
+}
+.pcm-ol-speiseplan:before {
+  content: "\f287";
+}
+.pcm-ol-speiseplan-rotation:before {
+  content: "\f289";
+}
+.pcm-ol-verkoestigungsbetrieb:before {
+  content: "\f28b";
+}
+.pcm-ol-struktur-betrieb:before {
+  content: "\20a4";
+}
+.pcm-ol-struktur-person:before {
+  content: "\20a5";
+}
+.pcm-ol-struktur-sidemap:before {
+  content: "\20a3";
+}
+.pcm-ol-menue-nav-leiste:before {
+  content: "\f2e0";
+}
+.pcm-ol-kaestchen-bereiche:before {
+  content: "\f2e3";
+}
+.pcm-ol-menue-kachelansicht:before {
+  content: "\f2e2";
+}
+.pcm-ol-menue-more-w:before {
+  content: "\20a7";
+}
+.pcm-ol-menue-dashboard:before {
+  content: "\f2e1";
+}
+.pcm-ol-liste-nummern:before {
+  content: "\f2e4";
+}
+.pcm-ol-spezifikation:before {
+  content: "\f2e5";
+}
+.pcm-ol-darstellung-tabelle:before {
+  content: "\f332";
+}
+.pcm-ol-vollbildmodus-aus:before {
+  content: "\f2ea";
+}
+.pcm-ol-vollbildmodus-ein:before {
+  content: "\f2eb";
+}
+.pcm-ol-business-intelligence:before {
+  content: "\f2ec";
+}
+.pcm-ol-packungs-einheiten:before {
+  content: "\f2ed";
+}
+.pcm-ol-ticketofficel:before {
+  content: "\f241";
+}
+.pcm-ol-ribbon:before {
+  content: "\f4af";
+}
+.pcm-ol-a-artikel-clearing:before {
+  content: "\f2b9";
+}
+.pcm-ol-a-artikel:before {
+  content: "\f2b0";
+}
+.pcm-ol-a-artikel-pflege:before {
+  content: "\f2b3";
+}
+.pcm-ol-a-artikel-sperre:before {
+  content: "\f2be";
+}
+.pcm-ol-a-artikel-suche:before {
+  content: "\f2b7";
+}
+.pcm-ol-a-artikel-tausch:before {
+  content: "\f2bf";
+}
+.pcm-ol-a-artikel-uebersicht:before {
+  content: "\f2b6";
+}
+.pcm-ol-a-artikel-vergleich:before {
+  content: "\f2ba";
+}
+.pcm-ol-a-artikel-verwaltung:before {
+  content: "\f2b4";
+}
+.pcm-ol-a-artikel-zuordnung:before {
+  content: "\f2bd";
+}
+.pcm-ol-l-lieferant-anfrage:before {
+  content: "\f2cb";
+}
+.pcm-ol-l-lieferant-info:before {
+  content: "\f2ca";
+}
+.pcm-ol-l-lieferant:before {
+  content: "\f2c0";
+}
+.pcm-ol-l-lieferant-pflege:before {
+  content: "\f2c3";
+}
+.pcm-ol-l-lieferant-portal:before {
+  content: "\f2c5";
+}
+.pcm-ol-l-lieferant-suche:before {
+  content: "\f2c8";
+}
+.pcm-ol-l-lieferant-ueberblick:before {
+  content: "\f2c6";
+}
+.pcm-ol-l-lieferant-verwaltung:before {
+  content: "\f2c4";
+}
+.pcm-ol-lieferant-lkw-frontal:before {
+  content: "\f697";
+}
+.pcm-ol-zubereitung:before {
+  content: "\f280";
+}
+.pcm-ol-lieferanten-top:before {
+  content: "\f164";
+}
+.pcm-ol-m-mandanten-buchhaltung:before {
+  content: "\f2d9";
+}
+.pcm-ol-m-mandanten-gruppenmandant:before {
+  content: "\f2db";
+}
+.pcm-ol-m-mandanten:before {
+  content: "\f2d0";
+}
+.pcm-ol-m-mandanten-pflege:before {
+  content: "\f2d3";
+}
+.pcm-ol-m-mandanten-verwaltung:before {
+  content: "\f2d4";
+}
+.pcm-ol-m-mandanten-umsatz:before {
+  content: "\f2da";
+}
+.pcm-ol-m-mandanten-ueberblick:before {
+  content: "\f2d6";
+}
+.pcm-ol-m-mandanten-suche:before {
+  content: "\f2d7";
+}
+.pcm-ol-m-mandanten-portal:before {
+  content: "\f2d5";
+}
+.pcm-ol-p-person:before {
+  content: "\f2f0";
+}
+.pcm-ol-p-person-adressen:before {
+  content: "\f2fa";
+}
+.pcm-ol-p-person-pflege:before {
+  content: "\f2f3";
+}
+.pcm-ol-p-person-ueberblick:before {
+  content: "\f2f6";
+}
+.pcm-ol-p-person-suche:before {
+  content: "\f2f7";
+}
+.pcm-ol-p-person-verwaltung:before {
+  content: "\f2f4";
+}
+.pcm-ol-p-person-rechte:before {
+  content: "\f2fb";
+}
+.pcm-ol-segmentierung-1:before {
+  content: "\f260";
+}
+.pcm-ol-segmentierung-2:before {
+  content: "\f261";
+}
+.pcm-ol-segmentierung-zurueck:before {
+  content: "\f263";
+}
+.pcm-ol-segmentierung-uebernehmen:before {
+  content: "\f269";
+}
+.pcm-ol-segment-umsatz:before {
+  content: "\f26f";
+}
+.pcm-ol-segmentierung-automatisch:before {
+  content: "\f26e";
+}
+.pcm-ol-segmentierung-loeschen:before {
+  content: "\f268";
+}
+.pcm-ol-segment-eins:before {
+  content: "\f26b";
+}
+.pcm-ol-segment-zwei:before {
+  content: "\f26c";
+}
+.pcm-ol-segment-vorlage:before {
+  content: "\f26d";
+}
+.pcm-ol-segmentierung-vorlage-1:before {
+  content: "\f266";
+}
+.pcm-ol-segmentierung-vorlage-2:before {
+  content: "\f267";
+}
+.pcm-ol-materialart-bewertungsklasse:before {
+  content: "\f16a";
+}
+.pcm-ol-massenjob-auswahl:before {
+  content: "\f206";
+}
+.pcm-ol-dragdrop-2:before {
+  content: "\f20b";
+}
+.pcm-ol-dragdrop-1:before {
+  content: "\f20c";
+}
+.pcm-ol-console-management:before {
+  content: "\f259";
+}
+.pcm-ol-console-regler:before {
+  content: "\f25a";
+}
+.pcm-ol-printer-ornament-blatt:before {
+  content: "\2619";
+}
+.pcm-ol-printer-ornament-celtic1:before {
+  content: "\261a";
+}
+.pcm-ol-printer-ornament-lilie:before {
+  content: "\269c";
+}
+.pcm-ol-management:before {
+  content: "\f25e";
+}
+.pcm-ol-management-pcm:before {
+  content: "\f25f";
+}
+.pcm-ol-pcm-rauten:before {
+  content: "\f250";
+}
+.pcm-ol-haccp:before {
+  content: "\6b";
+}
+.pcm-ol-d-karte:before {
+  content: "\af";
+}
+.pcm-ol-hand-aussen:before {
+  content: "\f443";
+}
+.pcm-ol-hand-bakschisch:before {
+  content: "\f916";
+}
+.pcm-ol-hand-call-me:before {
+  content: "\f919";
+}
+.pcm-ol-hand-daumen-hoch-re:before {
+  content: "\f44d";
+}
+.pcm-ol-hand-daumen-runter-re:before {
+  content: "\f44e";
+}
+.pcm-ol-hand-erhob-zeigefinger-innen:before {
+  content: "\261d";
+}
+.pcm-ol-hand-erhob-zeigefinger-rs:before {
+  content: "\f446";
+}
+.pcm-ol-hand-faust-nach-oben:before {
+  content: "\270a";
+}
+.pcm-ol-hand-faust-seitl-li:before {
+  content: "\f91c";
+}
+.pcm-ol-hand-faust-seitl-re:before {
+  content: "\f91b";
+}
+.pcm-ol-hand-gekreuzte-finger:before {
+  content: "\f91e";
+}
+.pcm-ol-hand-hoerner-geste:before {
+  content: "\f918";
+}
+.pcm-ol-hand-hoerner-geste-rs:before {
+  content: "\f917";
+}
+.pcm-ol-hand-innen-finger-gespreizt:before {
+  content: "\f910";
+}
+.pcm-ol-hand-innen:before {
+  content: "\f91a";
+}
+.pcm-ol-hand-love-geste:before {
+  content: "\f91f";
+}
+.pcm-ol-hand-mittelfinger:before {
+  content: "\f595";
+}
+.pcm-ol-hand-ok-geste:before {
+  content: "\f44c";
+}
+.pcm-ol-hand-victory-ol:before {
+  content: "\270c";
+}
+.pcm-ol-hand-vulcanier-gruss:before {
+  content: "\f596";
+}
+.pcm-ol-hand-winkend:before {
+  content: "\f44b";
+}
+.pcm-ol-hand-zeigefinger-li-rs-ol:before {
+  content: "\f448";
+}
+.pcm-ol-hand-zeigefinger-re-rs:before {
+  content: "\f449";
+}
+.pcm-ol-hand-zeigefinger-unten-rs:before {
+  content: "\f447";
+}
+.pcm-ol-haende-winkend:before {
+  content: "\f450";
+}
+.pcm-ol-haende-feiern:before {
+  content: "\f64c";
+}
+.pcm-ol-haende-klatschend:before {
+  content: "\f44f";
+}
+.pcm-ol-haende-offen:before {
+  content: "\f932";
+}
+.pcm-ol-hand-faust-frontal:before {
+  content: "\f44a";
+}
+.pcm-ol-jw3:before {
+  content: "\e000";
+}
+.pcm-ol-spirale-eng:before {
+  content: "\267a";
+}
+.pcm-ol-spirale-weit:before {
+  content: "\267b";
+}
+.pcm-ol-spirale-gegenlaeufig:before {
+  content: "\267c";
+}
+.pcm-ol-transport-container:before {
+  content: "\f693";
+}
+.pcm-ol-rakete-karriere:before {
+  content: "\f680";
+}
+.pcm-ol-printer-ornament-triskell:before {
+  content: "\261b";
+}
+.pcm-ol-pizzastueck:before {
+  content: "\f355";
+}
+.pcm-ol-ab-ablage:before {
+  content: "\f1a5";
+}
+.pcm-ol-ab-anzeigen:before {
+  content: "\f1a0";
+}
+.pcm-ol-ab-dokument:before {
+  content: "\f1a3";
+}
+.pcm-ol-ab-iordnung:before {
+  content: "\f1ad";
+}
+.pcm-ol-ab-positionen:before {
+  content: "\f1a2";
+}
+.pcm-ol-ab-verwaltung:before {
+  content: "\f1a4";
+}
+.pcm-ol-bs-ablage:before {
+  content: "\f1b5";
+}
+.pcm-ol-bs-anzeigen:before {
+  content: "\f1b0";
+}
+.pcm-ol-bs-einzelansicht:before {
+  content: "\f1b9";
+}
+.pcm-ol-bs-iordnung:before {
+  content: "\f1bd";
+}
+.pcm-ol-bs-positionen:before {
+  content: "\f1b2";
+}
+.pcm-ol-bs-tabellenansicht:before {
+  content: "\f1b8";
+}
+.pcm-ol-bs-verwaltung:before {
+  content: "\f1b4";
+}
+.pcm-ol-bs-weiterleiten:before {
+  content: "\f1b7";
+}
+.pcm-ol-ls-ablage:before {
+  content: "\f1c5";
+}
+.pcm-ol-ls-anzeigen:before {
+  content: "\f1c0";
+}
+.pcm-ol-ls-iordnung:before {
+  content: "\f1cd";
+}
+.pcm-ol-ls-positionen:before {
+  content: "\f1c2";
+}
+.pcm-ol-ls-verwaltung:before {
+  content: "\f1c4";
+}
+.pcm-ol-re-ablage:before {
+  content: "\f1d5";
+}
+.pcm-ol-re-anzeigen:before {
+  content: "\f1d0";
+}
+.pcm-ol-re-export:before {
+  content: "\f1d7";
+}
+.pcm-ol-re-iordnung-lf:before {
+  content: "\f1de";
+}
+.pcm-ol-re-iordnung:before {
+  content: "\f1dd";
+}
+.pcm-ol-re-scannen:before {
+  content: "\f1db";
+}
+.pcm-ol-re-positionen:before {
+  content: "\f1d2";
+}
+.pcm-ol-re-stoerung:before {
+  content: "\f1da";
+}
+.pcm-ol-re-verwaltung:before {
+  content: "\f1d4";
+}
+.pcm-ol-ab-suchen:before {
+  content: "\f1a1";
+}
+.pcm-ol-bs-suchen:before {
+  content: "\f1b1";
+}
+.pcm-ol-re-suchen:before {
+  content: "\f1d1";
+}
+.pcm-ol-ls-suchen:before {
+  content: "\f1c1";
+}
+.pcm-ol-bs-dokument:before {
+  content: "\f1b3";
+}
+.pcm-ol-ls-dokument:before {
+  content: "\f1c3";
+}
+.pcm-ol-re-dokument:before {
+  content: "\f1d3";
+}
+.pcm-ol-printer-ornament-celtic3:before {
+  content: "\261c";
+}
+.pcm-ol-controlling-neu:before {
+  content: "\f20e";
+}
+.pcm-ol-controlling-alt:before {
+  content: "\f20d";
+}
+.pcm-ol-artikeldaten-verschmelzen:before {
+  content: "\f299";
+}
+.pcm-ol-gevatter-skull:before {
+  content: "\f480";
+}
+.pcm-ol-fisch:before {
+  content: "\f41f";
+}
+.pcm-ol-hand-abfall:before {
+  content: "\f93a";
+}
+.pcm-ol-hand-brief:before {
+  content: "\f93b";
+}
+.pcm-ol-hand-handy:before {
+  content: "\f93d";
+}
+.pcm-ol-hand-kreditkarte:before {
+  content: "\f93c";
+}
+.pcm-ol-cloud:before {
+  content: "\f630";
+}
+.pcm-ol-cloud-regen:before {
+  content: "\f63b";
+}
+.pcm-ol-cloud-sonne:before {
+  content: "\f63a";
+}
+.pcm-ol-hand-daumenzeigefinger-auseinander:before {
+  content: "\f925";
+}
+.pcm-ol-hand-daumenzeigefinger-zusammen:before {
+  content: "\f924";
+}
+.pcm-ol-hand-wischfinger-li:before {
+  content: "\f922";
+}
+.pcm-ol-hand-wischfinger-re:before {
+  content: "\f921";
+}
+.pcm-ol-hand-zweifinger-ziehen:before {
+  content: "\f926";
+}
+.pcm-ol-haende-zusammen:before {
+  content: "\f931";
+}
+.pcm-ol-cloud-ablegen:before {
+  content: "\f632";
+}
+.pcm-ol-cloud-holen:before {
+  content: "\f631";
+}
+.pcm-ol-cloud-stoerung:before {
+  content: "\f63c";
+}
+.pcm-ol-hand-tippfinger:before {
+  content: "\f923";
+}
+.pcm-ol-hand-erhob-zeigefinger-rs-odaumen:before {
+  content: "\f445";
+}
+.pcm-ol-hand-gekreuzte-finger-rs:before {
+  content: "\f91d";
+}
+.pcm-ol-cloud-anschluss:before {
+  content: "\f633";
+}
+.pcm-ol-internet-anschluss:before {
+  content: "\f11e";
+}
+.pcm-ol-schluessel-neu-2:before {
+  content: "\f510";
+}
+.pcm-ol-haendedruck:before {
+  content: "\f930";
+}
+.pcm-ol-hand-maus:before {
+  content: "\f93e";
+}
+.pcm-ol-hand-geldschein:before {
+  content: "\f93f";
+}
+.pcm-ol-hand-vierfinger-klick:before {
+  content: "\f92c";
+}
+.pcm-ol-hand-zifferntastatur:before {
+  content: "\f927";
+}
+.pcm-ol-re-iordnung-dta:before {
+  content: "\f1df";
+}
+.pcm-ol-artikelverbrauch-lagerentnahme:before {
+  content: "\f33a";
+}
+.pcm-ol-hand-doppelklick:before {
+  content: "\f928";
+}
+.pcm-ol-haendewassertropfen:before {
+  content: "\f933";
+}
+.pcm-ol-hand-zeigefinger-n-unten:before {
+  content: "\f92a";
+}
+.pcm-ol-hand-zeigefinger-re-li:before {
+  content: "\f92b";
+}
+.pcm-ol-schalter-ein-aus:before {
+  content: "\f12a";
+}
+.pcm-ol-schulung:before {
+  content: "\f483";
+}
+.pcm-ol-teller-besteck-2:before {
+  content: "\f373";
+}
+.pcm-ol-topf-flach-deckel:before {
+  content: "\f378";
+}
+.pcm-ol-topf-mittel-deckel:before {
+  content: "\f377";
+}
+.pcm-ol-topf-hoch-deckel:before {
+  content: "\f376";
+}
+.pcm-ol-kaestchen-tropfen:before {
+  content: "\f24e";
+}
+.pcm-ol-topf-rezepte-hinzufuegen:before {
+  content: "\f379";
+}
+.pcm-ol-topf-2:before {
+  content: "\7b";
+}
+.pcm-ol-topf-rezept-ok:before {
+  content: "\f37a";
+}
+.pcm-ol-cursor-pfeil:before {
+  content: "\e00a";
+}
+.pcm-ol-sidebar-schliessen:before {
+  content: "\f202";
+}
+.pcm-ol-sidebar-oeffnen:before {
+  content: "\f203";
+}
+.pcm-ol-speiseplan-aktualisieren:before {
+  content: "\f28a";
+}
+.pcm-ol-speiseplan-2:before {
+  content: "\f286";
+}
+.pcm-ol-teller-besteck-3:before {
+  content: "\5a";
+}
+.pcm-ol-ananas:before {
+  content: "\f34d";
+}
+.pcm-ol-home-klein:before {
+  content: "\6c";
+}
+.pcm-ol-achtung-klein:before {
+  content: "\22";
+}
+.pcm-ol-filter-klein-loeschen:before {
+  content: "\23f8";
+}
+.pcm-ol-filter-klein:before {
+  content: "\23f7";
+}
+.pcm-ol-buch-gvkat:before {
+  content: "\f4d3";
+}
+.pcm-ol-buch-archiv:before {
+  content: "\f4d2";
+}
+.pcm-ol-buch-rezept-hinzufuegen:before {
+  content: "\f4d7";
+}
+.pcm-ol-ablage-rein:before {
+  content: "\f4e4";
+}
+.pcm-ol-ablage-raus:before {
+  content: "\f4e5";
+}
+.pcm-ol-ablage-wiedervorlage:before {
+  content: "\f233";
+}
+.pcm-ol-suchen-lupe-li:before {
+  content: "\29";
+}
+.pcm-ol-suchen-lupe-re:before {
+  content: "\f50e";
+}
+.pcm-ol-details-1:before {
+  content: "\f51b";
+}
+.pcm-ol-details-2:before {
+  content: "\f51c";
+}
+.pcm-ol-details-3:before {
+  content: "\f51d";
+}
+.pcm-ol-zugferd:before {
+  content: "\f240";
+}
+.pcm-ol-optionen:before {
+  content: "\24";
+}
+.pcm-ol-menue-more-s:before {
+  content: "\20a8";
+}
+.pcm-ol-etikett-eigenschaften:before {
+  content: "\f3f7";
+}
+.pcm-ol-etikettenrolle:before {
+  content: "\f24a";
+}
+.pcm-ol-etikett-2:before {
+  content: "\f3f8";
+}
+.pcm-ol-kamera-bild:before {
+  content: "\5b";
+}
+.pcm-ol-kamera-keinbild:before {
+  content: "\5d";
+}
+.pcm-ol-produktion-1:before {
+  content: "\f28c";
+}
+.pcm-ol-post-versenden:before {
+  content: "\27";
+}
+.pcm-ol-warenwirtschaft:before {
+  content: "\f694";
+}
+.pcm-ol-brunnen-aeskulap:before {
+  content: "\26f3";
+}
+.pcm-ol-brunnen:before {
+  content: "\26f2";
+}
+.pcm-ol-frageantwort:before {
+  content: "\f254";
+}
+.pcm-ol-chat-2:before {
+  content: "\f255";
+}
+.pcm-ol-kreis-fehler:before {
+  content: "\f208";
+}
+.pcm-ol-daten-qualitaet:before {
+  content: "\f11b";
+}
+.pcm-ol-waage-kalibrierung:before {
+  content: "\2695";
+}
+.pcm-ol-mahlzeit:before {
+  content: "\f285";
+}
+.pcm-ol-person-manager:before {
+  content: "\f467";
+}
+.pcm-ol-person-w:before {
+  content: "\f469";
+}
+.pcm-ol-person-suchen:before {
+  content: "\f46b";
+}
+.pcm-ol-person-rechte:before {
+  content: "\f46a";
+}
+.pcm-ol-entwicklung-entwurf:before {
+  content: "\f6ea";
+}
+.pcm-ol-buch-geschlossen:before {
+  content: "\f4d5";
+}
+.pcm-ol-buch-geschlossen-2:before {
+  content: "\f4d4";
+}
+.pcm-ol-a-artikel-warengruppe:before {
+  content: "\f2bc";
+}
+.pcm-ol-mengenschnellerfassung:before {
+  content: "\f207";
+}
+.pcm-ol-aktentasche-vertrieb:before {
+  content: "\f4bc";
+}
+.pcm-ol-glas-wein:before {
+  content: "\f36a";
+}
+.pcm-ol-pizza:before {
+  content: "\f356";
+}
+.pcm-ol-glas-zerbrochen:before {
+  content: "\f36b";
+}
+.pcm-ol-sortieren-alphabet-a-z:before {
+  content: "\41";
+}
+.pcm-ol-sortieren-alphabet-z-a:before {
+  content: "\61";
+}
+.pcm-ol-passwort:before {
+  content: "\f3fb";
+}
+.pcm-ol-passwort-vergessen:before {
+  content: "\f3fa";
+}
+.pcm-ol-auszeichnung:before {
+  content: "\f160";
+}
+.pcm-ol-prozent-steuer:before {
+  content: "\25";
+}
+.pcm-ol-top-20:before {
+  content: "\f169";
+}
+.pcm-ol-et-zeichen:before {
+  content: "\26";
+}
+.pcm-ol-buchen:before {
+  content: "\f31c";
+}
+.pcm-ol-tauschen:before {
+  content: "\f218";
+}
+.pcm-ol-menge-nummer:before {
+  content: "\23";
+}
+.pcm-ol-portal:before {
+  content: "\f3db";
+}
+.pcm-ol-verpackung:before {
+  content: "\f6aa";
+}
+.pcm-ol-kalender-woche:before {
+  content: "\b3";
+}
+.pcm-ol-vergroessern:before {
+  content: "\f214";
+}
+.pcm-ol-verkleinern:before {
+  content: "\f215";
+}
+.pcm-ol-k-kreditor:before {
+  content: "\f380";
+}
+.pcm-ol-k-kreditoren-ansicht:before {
+  content: "\f385";
+}
+.pcm-ol-k-kreditoren-pflege:before {
+  content: "\f383";
+}
+.pcm-ol-k-kreditoren-verwaltung:before {
+  content: "\f384";
+}
+.pcm-ol-k-kreditoren-suche:before {
+  content: "\f387";
+}
+.pcm-ol-summe:before {
+  content: "\3a3";
+}
+.pcm-ol-kalender-tag:before {
+  content: "\f5d3";
+}
+.pcm-ol-kalender-tag-mo:before {
+  content: "\f5d5";
+}
+.pcm-ol-kalender-tag-di:before {
+  content: "\f5d6";
+}
+.pcm-ol-kalender-tag-mi:before {
+  content: "\f5d7";
+}
+.pcm-ol-kalender-tag-do:before {
+  content: "\f5d8";
+}
+.pcm-ol-kalender-tag-fr:before {
+  content: "\f5d9";
+}
+.pcm-ol-kalender-tag-sa:before {
+  content: "\f5da";
+}
+.pcm-ol-kalender-tag-so:before {
+  content: "\f5db";
+}
+.pcm-ol-link-kette:before {
+  content: "\20a0";
+}
+.pcm-ol-fehler:before {
+  content: "\26ab";
+}
+.pcm-ol-akku-ladungsanzeige-0:before {
+  content: "\232a";
+}
+.pcm-ol-akku-ladungsanzeige-1:before {
+  content: "\232b";
+}
+.pcm-ol-akku-ladungsanzeige-2:before {
+  content: "\232c";
+}
+.pcm-ol-akku-ladungsanzeige-3:before {
+  content: "\232d";
+}
+.pcm-ol-akku-ladungsanzeige-4:before {
+  content: "\232e";
+}
+.pcm-ol-verbindungsanzeige-4:before {
+  content: "\233e";
+}
+.pcm-ol-verbindungsanzeige-0:before {
+  content: "\233a";
+}
+.pcm-ol-verbindungsanzeige-1:before {
+  content: "\233b";
+}
+.pcm-ol-verbindungsanzeige-2:before {
+  content: "\233c";
+}
+.pcm-ol-verbindungsanzeige-3:before {
+  content: "\233d";
+}
+.pcm-ol-bluetooth:before {
+  content: "\f55e";
+}
+.pcm-ol-celtic-border-li:before {
+  content: "\2601";
+}
+.pcm-ol-celtic-border-o:before {
+  content: "\2602";
+}
+.pcm-ol-celtic-border-re:before {
+  content: "\2603";
+}
+.pcm-ol-celtic-border-u:before {
+  content: "\2604";
+}
+.pcm-ol-celtic-bordercorner-ol:before {
+  content: "\260a";
+}
+.pcm-ol-celtic-bordercorner-or:before {
+  content: "\260b";
+}
+.pcm-ol-celtic-bordercorner-ul:before {
+  content: "\260c";
+}
+.pcm-ol-celtic-bordercorner-ur:before {
+  content: "\260d";
+}
+.pcm-ol-seil-h-li:before {
+  content: "\26b1";
+}
+.pcm-ol-seil-h-re:before {
+  content: "\26b2";
+}
+.pcm-ol-seil-v-li:before {
+  content: "\26b3";
+}
+.pcm-ol-seil-v-re:before {
+  content: "\26b4";
+}
+.pcm-ol-seil-ecke-li-o:before {
+  content: "\26b5";
+}
+.pcm-ol-seil-ecke-li-u:before {
+  content: "\26b7";
+}
+.pcm-ol-seil-ecke-re-o:before {
+  content: "\26b6";
+}
+.pcm-ol-seil-ecke-re-u:before {
+  content: "\26b8";
+}
+.pcm-ol-pfeile-oben-unten:before {
+  content: "\f216";
+}
+.pcm-ol-pfeile-rechts-links:before {
+  content: "\f217";
+}
+.pcm-ol-pokal:before {
+  content: "\f16d";
+}
+.pcm-ol-spritze:before {
+  content: "\f131";
+}
+.pcm-ol-a-artikel-medprod:before {
+  content: "\f2b8";
+}
+.pcm-ol-tabletten:before {
+  content: "\f133";
+}
+.pcm-ol-datenbank:before {
+  content: "\f120";
+}
+.pcm-ol-back-to-bottom:before {
+  content: "\f213";
+}
+.pcm-ol-laptop:before {
+  content: "\f5a4";
+}
+.pcm-ol-usb-logo:before {
+  content: "\20a6";
+}
+.pcm-ol-struktur-organisation:before {
+  content: "\20a1";
+}
+.pcm-ol-glas-bier:before {
+  content: "\f369";
+}
+.pcm-ol-globus:before {
+  content: "\f55a";
+}
+.pcm-ol-weltkugel:before {
+  content: "\f55b";
+}
+.pcm-ol-weltkugel-hand:before {
+  content: "\f55c";
+}
+.pcm-ol-schreibblock:before {
+  content: "\f4b5";
+}
+.pcm-ol-wegweiser:before {
+  content: "\f550";
+}
+.pcm-ol-aeskulapstab-ambulance:before {
+  content: "\26f5";
+}
+.pcm-ol-aeskulapstab-fluegel:before {
+  content: "\26f4";
+}
+.pcm-ol-ekg:before {
+  content: "\f13a";
+}
+.pcm-ol-dna:before {
+  content: "\f13c";
+}
+.pcm-ol-dna-schraeg:before {
+  content: "\f13d";
+}
+.pcm-ol-personen:before {
+  content: "\f460";
+}
+.pcm-ol-person-kreispfeil:before {
+  content: "\f46d";
+}
+.pcm-ol-person-telefon:before {
+  content: "\f46c";
+}
+.pcm-ol-mikrofon:before {
+  content: "\f4da";
+}
+.pcm-ol-modul-budget:before {
+  content: "\f142";
+}
+.pcm-ol-modul-lager-bestand:before {
+  content: "\f143";
+}
+.pcm-ol-modul-produktionsplanung:before {
+  content: "\f145";
+}
+.pcm-ol-modul-vorkontierung:before {
+  content: "\f146";
+}
+.pcm-ol-modul-wareneingangsbuchung:before {
+  content: "\f147";
+}
+.pcm-ol-m-mandant-artikel:before {
+  content: "\f2d8";
+}
+.pcm-ol-cursor-text:before {
+  content: "\e00b";
+}
+.pcm-ol-darstellung-lager:before {
+  content: "\f337";
+}
+.pcm-ol-darstellung-standard:before {
+  content: "\f338";
+}
+.pcm-ol-daten-bewegungsdaten:before {
+  content: "\f113";
+}
+.pcm-ol-artikel-ordersatz-alt:before {
+  content: "\f29a";
+}
+.pcm-ol-ordersatz-alt:before {
+  content: "\f6a0";
+}
+.pcm-ol-aktenschrank:before {
+  content: "\f4ba";
+}
+.pcm-ol-ablage-o-buchungsvorschlag:before {
+  content: "\f232";
+}
+.pcm-ol-ablage-lieferschein-offen:before {
+  content: "\f23d";
+}
+.pcm-ol-ablage-rechnung-offen:before {
+  content: "\f231";
+}
+.pcm-ol-ablage-rechnung:before {
+  content: "\f237";
+}
+.pcm-ol-stapler-wareneingang-rechnung:before {
+  content: "\f69f";
+}
+.pcm-ol-a-artikel-berichte:before {
+  content: "\f2b2";
+}
+.pcm-ol-a-artikel-liste:before {
+  content: "\f2b5";
+}
+.pcm-ol-a-artikel-ordersatzlistung:before {
+  content: "\f2bb";
+}
+.pcm-ol-k-kreditoren-bericht:before {
+  content: "\f382";
+}
+.pcm-ol-l-lieferant-bericht:before {
+  content: "\f2c2";
+}
+.pcm-ol-m-mandanten-bericht:before {
+  content: "\f2d2";
+}
+.pcm-ol-h-hersteller-info:before {
+  content: "\f3ba";
+}
+.pcm-ol-h-hersteller:before {
+  content: "\f3b0";
+}
+.pcm-ol-a-artikel-infos:before {
+  content: "\f39a";
+}
+.pcm-ol-a-artikel-hinzufuegen:before {
+  content: "\f390";
+}
+.pcm-ol-a-artikel-loeschen:before {
+  content: "\f391";
+}
+.pcm-ol-pool-hinzufuegen:before {
+  content: "\f6c2";
+}
+.pcm-ol-pool-loeschen:before {
+  content: "\f6c3";
+}
+.pcm-ol-pool-tauschen:before {
+  content: "\f6cf";
+}
+.pcm-ol-flaschen-pfand:before {
+  content: "\f360";
+}
+.pcm-ol-auswahl-bestaetigen:before {
+  content: "\2715";
+}
+.pcm-ol-sonderregelungen:before {
+  content: "\f246";
+}
+.pcm-ol-l-lieferant-optionen:before {
+  content: "\f2cc";
+}
+.pcm-ol-a-artikel-tausch-lf-vorauswahl:before {
+  content: "\f39f";
+}
+.pcm-ol-vergleichstyp-aendern:before {
+  content: "\f50f";
+}
+.pcm-ol-diagramm-umsatz-datenbank:before {
+  content: "\f473";
+}
+.pcm-ol-diagramm-umsatz-excel:before {
+  content: "\f474";
+}
+.pcm-ol-diagramm-umsatz-vergleichsdaten:before {
+  content: "\f475";
+}
+.pcm-ol-share:before {
+  content: "\20a2";
+}
+.pcm-ol-durschschnitt:before {
+  content: "\3a4";
+}
+.pcm-ol-pool-artikel:before {
+  content: "\f6c4";
+}
+.pcm-ol-pool-durchschnittspreis:before {
+  content: "\f6c5";
+}
+.pcm-ol-l-lieferant-umsatz:before {
+  content: "\f2c9";
+}
+.pcm-ol-sp-icon-ohne-ei:before {
+  content: "\f9a0";
+}
+.pcm-ol-sp-icon-ohne-fisch:before {
+  content: "\f9a1";
+}
+.pcm-ol-sp-icon-ohne-genmanipulation:before {
+  content: "\f9a2";
+}
+.pcm-ol-sp-icon-ohne-honig:before {
+  content: "\f9a4";
+}
+.pcm-ol-sp-icon-ohne-koffein:before {
+  content: "\f9a5";
+}
+.pcm-ol-sp-icon-ohne-kohlehydrate:before {
+  content: "\f9a6";
+}
+.pcm-ol-sp-icon-ohne-krustentiere:before {
+  content: "\f9a7";
+}
+.pcm-ol-sp-icon-ohne-mais:before {
+  content: "\f9a9";
+}
+.pcm-ol-sp-icon-ohne-nitrat:before {
+  content: "\f9aa";
+}
+.pcm-ol-sp-icon-ohne-nuesse:before {
+  content: "\f9ab";
+}
+.pcm-ol-sp-icon-ohne-sellerie:before {
+  content: "\f9ac";
+}
+.pcm-ol-sp-icon-ohne-soja:before {
+  content: "\f9ad";
+}
+.pcm-ol-sp-icon-ohne-transfette:before {
+  content: "\f9ae";
+}
+.pcm-ol-sp-icon-ohne-zucker:before {
+  content: "\f9af";
+}
+.pcm-ol-sp-icon-glutenfrei:before {
+  content: "\f9a3";
+}
+.pcm-ol-sp-icon-lactosefrei:before {
+  content: "\f9a8";
+}
+.pcm-ol-sp-icon-fisch:before {
+  content: "\f9b0";
+}
+.pcm-ol-sp-icon-gefluegel:before {
+  content: "\f9b1";
+}
+.pcm-ol-sp-icon-rind:before {
+  content: "\f9b2";
+}
+.pcm-ol-sp-icon-schaf:before {
+  content: "\f9b3";
+}
+.pcm-ol-sp-icon-schwein:before {
+  content: "\f9b4";
+}
+.pcm-ol-sp-icon-wild:before {
+  content: "\f9b5";
+}
+.pcm-ol-sp-icon-ziege:before {
+  content: "\f9b6";
+}
+.pcm-ol-sp-icon-alkohol:before {
+  content: "\f9bf";
+}
+.pcm-ol-sp-icon-knoblauch:before {
+  content: "\f9ba";
+}
+.pcm-ol-sp-icon-transfair:before {
+  content: "\f9c0";
+}
+.pcm-ol-sp-icon-fsc:before {
+  content: "\f9c1";
+}
+.pcm-ol-sp-icon-msc:before {
+  content: "\f9c2";
+}
+.pcm-ol-sp-icon-rainforestalliance:before {
+  content: "\f9c3";
+}
+.pcm-ol-sp-icon-koscher:before {
+  content: "\f9ca";
+}
+.pcm-ol-sp-icon-halal:before {
+  content: "\f9cb";
+}
+.pcm-ol-sp-icon-peperoni-scharf:before {
+  content: "\f9d8";
+}
+.pcm-ol-sp-icon-vegan:before {
+  content: "\f9d2";
+}
+.pcm-ol-sp-icon-vegetarisch:before {
+  content: "\f9d1";
+}
+.pcm-ol-sp-icon-aktionsessen:before {
+  content: "\f9da";
+}
+.pcm-ol-sp-icon-wunschessen:before {
+  content: "\f9db";
+}
+.pcm-ol-sp-icon-fett-reduziert:before {
+  content: "\f9d0";
+}
+.pcm-ol-punkt-08px:before {
+  content: "\f430";
+}
+.pcm-ol-punkt-16px:before {
+  content: "\f431";
+}
+.pcm-ol-punkt-24px:before {
+  content: "\f432";
+}
+.pcm-ol-punkt-32px:before {
+  content: "\f433";
+}
+.pcm-ol-punkt-40px:before {
+  content: "\f434";
+}
+.pcm-ol-punkt-48px:before {
+  content: "\f435";
+}
+.pcm-ol-sp-icon-regional:before {
+  content: "\f9d5";
+}
+.pcm-ol-sp-icon-energie:before {
+  content: "\f9df";
+}
+.pcm-ol-sp-icon-eiweiss:before {
+  content: "\f9e0";
+}
+.pcm-ol-sp-icon-fett:before {
+  content: "\f9e1";
+}
+.pcm-ol-sp-icon-fettsaeure-gesaettigt:before {
+  content: "\f9e2";
+}
+.pcm-ol-sp-icon-fettsaeure-ungesaettigt:before {
+  content: "\f9e3";
+}
+.pcm-ol-sp-icon-kohlehydrate:before {
+  content: "\f9e4";
+}
+.pcm-ol-sp-icon-zucker:before {
+  content: "\f9e6";
+}
+.pcm-ol-sp-icon-salz:before {
+  content: "\f9e5";
+}
+.pcm-ol-brezel:before {
+  content: "\f968";
+}
+.pcm-ol-schalter-aus:before {
+  content: "\f12b";
+}
+.pcm-ol-schalter-ein:before {
+  content: "\f12c";
+}
+.pcm-ol-kompass-leicht:before {
+  content: "\f552";
+}
+.pcm-ol-kompass:before {
+  content: "\f551";
+}
+.pcm-ol-chat-1:before {
+  content: "\b0";
+}
+.pcm-ol-chat-3:before {
+  content: "\f4ab";
+}
+.pcm-ol-buch-offen-2:before {
+  content: "\f4d9";
+}
+.pcm-ol-segment-eins-speichern:before {
+  content: "\f264";
+}
+.pcm-ol-segment-zwei-speichern:before {
+  content: "\f265";
+}
+.pcm-ol-segmentierung-speichern:before {
+  content: "\f262";
+}
+.pcm-ol-zuordnung-speichern:before {
+  content: "\f314";
+}
+.pcm-ol-liste-bearbeiten:before {
+  content: "\f2e9";
+}
+.pcm-ol-spalten-bearbeiten:before {
+  content: "\f2e8";
+}
+.pcm-ol-pool-bearbeiten:before {
+  content: "\6e";
+}
+.pcm-ol-speiseplan-bearbeiten:before {
+  content: "\f288";
+}
+.pcm-ol-topf-rezept-bearbeiten:before {
+  content: "\f283";
+}
+.pcm-ol-a-artikel-bearbeiten:before {
+  content: "\f2b1";
+}
+.pcm-ol-h-hersteller-bearbeiten:before {
+  content: "\f3b1";
+}
+.pcm-ol-l-lieferant-bearbeiten:before {
+  content: "\f2c1";
+}
+.pcm-ol-m-mandanten-bearbeiten:before {
+  content: "\f2d1";
+}
+.pcm-ol-k-kreditor-bearbeiten:before {
+  content: "\f381";
+}
+.pcm-ol-p-person-bearbeiten:before {
+  content: "\f2f1";
+}
+.pcm-ol-darstellung-details:before {
+  content: "\f336";
+}
+.pcm-ol-speiseplan-details:before {
+  content: "\f28f";
+}
+.pcm-ol-daten-import:before {
+  content: "\f114";
+}
+.pcm-ol-segmentierung-freigeben:before {
+  content: "\f26a";
+}
+.pcm-ol-daten-import-neu:before {
+  content: "\f115";
+}
+.pcm-ol-daten-export:before {
+  content: "\f118";
+}
+.pcm-ol-daten-management:before {
+  content: "\f117";
+}
+.pcm-ol-daten-aktualisieren:before {
+  content: "\f116";
+}
+.pcm-ol-daten-update:before {
+  content: "\f119";
+}
+.pcm-ol-daten-update-starten:before {
+  content: "\f11a";
+}
+.pcm-ol-ab-bearbeiten:before {
+  content: "\f1a6";
+}
+.pcm-ol-bs-bearbeiten:before {
+  content: "\f1b6";
+}
+.pcm-ol-ls-bearbeiten:before {
+  content: "\f1c6";
+}
+.pcm-ol-re-bearbeiten:before {
+  content: "\f1d6";
+}
+.pcm-ol-zuordnung-frei:before {
+  content: "\f312";
+}
+.pcm-ol-minus-voll:before {
+  content: "\e4";
+}
+.pcm-ol-plus-voll:before {
+  content: "\f6";
+}
+.pcm-ol-delete-voll:before {
+  content: "\fc";
+}
+.pcm-ol-kreis-mittelpunkt:before {
+  content: "\d1";
+}
+.pcm-ol-kreis-mittelpunkt-okreis:before {
+  content: "\d2";
+}
+.pcm-ol-kreis-voll:before {
+  content: "\d3";
+}
+.pcm-ol-kreis-gepunktet:before {
+  content: "\f209";
+}
+.pcm-ol-ablage-bearbeiten-todo:before {
+  content: "\f230";
+}
+.pcm-ol-hand-zweifinger-klick:before {
+  content: "\f92d";
+}
+.pcm-ol-pcm-schriftzug:before {
+  content: "\f251";
+}
+.pcm-ol-nachvollziehbarkeit:before {
+  content: "\20aa";
+}
+.pcm-ol-kaestchen-ok:before {
+  content: "\f1";
+}
+.pcm-ol-kaestchen-voll-mitte:before {
+  content: "\f5";
+}
+.pcm-ol-kaestchen-voll:before {
+  content: "\f3";
+}
+.pcm-ol-kaestchen-voll-klein:before {
+  content: "\f2";
+}
+.pcm-ol-lager-bestand-bearbeiten:before {
+  content: "\f23b";
+}
+.pcm-ol-lager-ansicht:before {
+  content: "\f23a";
+}
+.pcm-ol-stift:before {
+  content: "\df";
+}
+.pcm-ol-bestellung-notiz:before {
+  content: "\79";
+}
+.pcm-ol-bestellung-notiz-bearbeiten:before {
+  content: "\f191";
+}
+.pcm-ol-bestellung-telefonisch-zpc:before {
+  content: "\f193";
+}
+.pcm-ol-bestellung-notiz-aktualisieren:before {
+  content: "\f192";
+}
+.pcm-ol-bestellung-notiz-ok:before {
+  content: "\f194";
+}
+.pcm-ol-bestellung-notiz-ztermin:before {
+  content: "\f197";
+}
+.pcm-ol-bestellung-notiz-ansehen:before {
+  content: "\f195";
+}
+.pcm-ol-bestellung-notiz-ausstehend:before {
+  content: "\f198";
+}
+.pcm-ol-bestellung-letzte:before {
+  content: "\f19b";
+}
+.pcm-ol-bestell-einheit:before {
+  content: "\f196";
+}
+.pcm-ol-bestellungdokument:before {
+  content: "\f19a";
+}
+.pcm-ol-bestell-import:before {
+  content: "\f199";
+}
+.pcm-ol-modul-bestellwesen:before {
+  content: "\f141";
+}
+.pcm-ol-filter:before {
+  content: "\4f";
+}
+.pcm-ol-filter-loeschen:before {
+  content: "\6f";
+}
+.pcm-ol-filter-k:before {
+  content: "\23f5";
+}
+.pcm-ol-filter-k-loeschen:before {
+  content: "\23f6";
+}
+.pcm-ol-email-platzieren:before {
+  content: "\f4e8";
+}
+.pcm-ol-post-brief:before {
+  content: "\4a";
+}
+.pcm-ol-post-email:before {
+  content: "\f4e7";
+}
+.pcm-ol-post-brief-offen:before {
+  content: "\2708";
+}
+.pcm-ol-post-adressen-kontakte:before {
+  content: "\f4c4";
+}
+.pcm-ol-tablette:before {
+  content: "\f132";
+}
+.pcm-ol-kaestchen-punkt:before {
+  content: "\f4";
+}
+.pcm-ol-speise-gericht:before {
+  content: "\f28d";
+}
+.pcm-ol-speise-gericht-hinzufuegen:before {
+  content: "\f28e";
+}
+.pcm-ol-artikel-vergleich:before {
+  content: "\f298";
+}
+.pcm-ol-urkunde-diplom:before {
+  content: "\f16e";
+}
+.pcm-ol-dokument:before {
+  content: "\64";
+}
+.pcm-ol-dokument-aktualisieren:before {
+  content: "\f228";
+}
+.pcm-ol-dokument-ansehen:before {
+  content: "\f227";
+}
+.pcm-ol-dokument-bandliste:before {
+  content: "\f175";
+}
+.pcm-ol-dokument-bearbeiten:before {
+  content: "\f225";
+}
+.pcm-ol-dokument-berichtsmanager:before {
+  content: "\f174";
+}
+.pcm-ol-dokument-bilanz:before {
+  content: "\f2a6";
+}
+.pcm-ol-dokument-bilanz-neu:before {
+  content: "\f183";
+}
+.pcm-ol-dokument-download:before {
+  content: "\f22c";
+}
+.pcm-ol-dokument-holen:before {
+  content: "\f229";
+}
+.pcm-ol-dokument-it:before {
+  content: "\f112";
+}
+.pcm-ol-dokument-kopieren:before {
+  content: "\f224";
+}
+.pcm-ol-dokument-loeschen:before {
+  content: "\f22e";
+}
+.pcm-ol-dokument-menueplan:before {
+  content: "\f284";
+}
+.pcm-ol-dokument-ok:before {
+  content: "\f222";
+}
+.pcm-ol-dokument-pcm:before {
+  content: "\f22b";
+}
+.pcm-ol-dokument-pflegen:before {
+  content: "\f22a";
+}
+.pcm-ol-dokument-preisliste:before {
+  content: "\f179";
+}
+.pcm-ol-dokument-preisliste-neu:before {
+  content: "\f185";
+}
+.pcm-ol-dokument-preislistenvergleich:before {
+  content: "\f17a";
+}
+.pcm-ol-dokument-protokollhistorie:before {
+  content: "\f171";
+}
+.pcm-ol-dokument-rechnung:before {
+  content: "\f2a8";
+}
+.pcm-ol-dokument-rechnungspruefung:before {
+  content: "\f3a8";
+}
+.pcm-ol-dokument-rechnungsstatus:before {
+  content: "\f3a0";
+}
+.pcm-ol-dokument-rechnungsuebersicht:before {
+  content: "\f3a1";
+}
+.pcm-ol-dokument-rechtstexte:before {
+  content: "\f220";
+}
+.pcm-ol-dokument-referenzliste:before {
+  content: "\f173";
+}
+.pcm-ol-dokument-report:before {
+  content: "\f170";
+}
+.pcm-ol-dokument-report-top:before {
+  content: "\f162";
+}
+.pcm-ol-dokument-rezepte:before {
+  content: "\f282";
+}
+.pcm-ol-dokument-scannen:before {
+  content: "\f221";
+}
+.pcm-ol-dokument-upload:before {
+  content: "\f22d";
+}
+.pcm-ol-dokument-summe:before {
+  content: "\f178";
+}
+.pcm-ol-dokument-stoerung:before {
+  content: "\f223";
+}
+.pcm-ol-dokument-stammdaten:before {
+  content: "\f176";
+}
+.pcm-ol-dokument-zpc-beleg-1:before {
+  content: "\f172";
+}
+.pcm-ol-dokument-versenden:before {
+  content: "\f226";
+}
+.pcm-ol-lieferschein-aktualisieren:before {
+  content: "\f15f";
+}
+.pcm-ol-lieferschein-elektron:before {
+  content: "\f15d";
+}
+.pcm-ol-lieferschein-import:before {
+  content: "\f159";
+}
+.pcm-ol-lieferschein-kontrolle:before {
+  content: "\f15c";
+}
+.pcm-ol-lieferschein-startseite:before {
+  content: "\f150";
+}
+.pcm-ol-lieferschein-web:before {
+  content: "\f15e";
+}
+.pcm-ol-lieferschein-zuordnen:before {
+  content: "\f15a";
+}
+.pcm-ol-lieferschein:before {
+  content: "\f15b";
+}
+.pcm-ol-ueberblick:before {
+  content: "\f45a";
+}
+.pcm-ol-hand-muenzen:before {
+  content: "\f914";
+}
+.pcm-ol-hand-bezahlen:before {
+  content: "\f915";
+}
+.pcm-ol-hand-schreibend-li:before {
+  content: "\270d";
+}
+.pcm-ol-hand-schreibend-re:before {
+  content: "\270e";
+}
+.pcm-ol-fehlertabellen-export:before {
+  content: "\26ac";
+}
+.pcm-ol-fehler-suche:before {
+  content: "\26ad";
+}
+.pcm-ol-fehler-kontolle:before {
+  content: "\26ae";
+}
+.pcm-ol-excel-spaltenzuordnung:before {
+  content: "\f274";
+}
+.pcm-ol-excel:before {
+  content: "\7e";
+}
+.pcm-ol-excel-export:before {
+  content: "\f271";
+}
+.pcm-ol-excel-import:before {
+  content: "\f272";
+}
+.pcm-ol-excel-musterseite:before {
+  content: "\f273";
+}
+.pcm-ol-naehrwertberechnung:before {
+  content: "\f32b";
+}
+.pcm-ol-neu-preise:before {
+  content: "\f182";
+}
+.pcm-ol-neu-bearbeiten:before {
+  content: "\f181";
+}
+.pcm-ol-darstellung-stapel:before {
+  content: "\f335";
+}
+.pcm-ol-artikeluebersicht:before {
+  content: "\f3a2";
+}
+.pcm-ol-drucken-a4:before {
+  content: "\f5a6";
+}
+.pcm-ol-drucken-serie:before {
+  content: "\f5a7";
+}
+.pcm-ol-drucken:before {
+  content: "\70";
+}
+.pcm-ol-drucken-etiketten:before {
+  content: "\f5ab";
+}
+.pcm-ol-artikel-ausgelistet:before {
+  content: "\f291";
+}
+.pcm-ol-artikel-nicht-guenstigsterpreis:before {
+  content: "\f293";
+}
+.pcm-ol-klemmbrett-aufgaben:before {
+  content: "\f4ca";
+}
+.pcm-ol-klemmbrett-ekg:before {
+  content: "\f4bb";
+}
+.pcm-ol-folder-geschlossen:before {
+  content: "\f4c0";
+}
+.pcm-ol-folder-oeffnen:before {
+  content: "\f4c1";
+}
+.pcm-ol-folder-offen:before {
+  content: "\f4c2";
+}
+.pcm-ol-folder-offendokument:before {
+  content: "\f4c3";
+}
+.pcm-ol-journal:before {
+  content: "\9f4dd";
+}
+.pcm-ol-news-zeitung:before {
+  content: "\f4f0";
+}
+.pcm-ol-ordner-offen:before {
+  content: "\56";
+}
+.pcm-ol-ordner-verwaltung:before {
+  content: "\b2";
+}
+.pcm-ol-kasse-budget:before {
+  content: "\55";
+}
+.pcm-ol-preis-clearing:before {
+  content: "\f2a2";
+}
+.pcm-ol-muenzen:before {
+  content: "\51";
+}
+.pcm-ol-ersparnisberechnung:before {
+  content: "\63";
+}
+.pcm-ol-ersparnisberechnung-detail:before {
+  content: "\f3a4";
+}
+.pcm-ol-ersparnisberechnung-liste:before {
+  content: "\f3a5";
+}
+.pcm-ol-ersparnisberechnung-speichern:before {
+  content: "\f3a6";
+}
+.pcm-ol-ersparnisberechnung-neg-n-berechnen:before {
+  content: "\f3a9";
+}
+.pcm-ol-ersparnisberechnung-excel:before {
+  content: "\f3a7";
+}
+.pcm-ol-preis-aktualisierenumsatz-update:before {
+  content: "\f2ab";
+}
+.pcm-ol-preis-akzeptieren:before {
+  content: "\f2a9";
+}
+.pcm-ol-preis-anfrage-iarbeit:before {
+  content: "\f2ae";
+}
+.pcm-ol-preis-anfrage:before {
+  content: "\f2a7";
+}
+.pcm-ol-preis-bearbeiten:before {
+  content: "\71";
+}
+.pcm-ol-preisregel:before {
+  content: "\f3a3";
+}
+.pcm-ol-preis-teurer:before {
+  content: "\f2ac";
+}
+.pcm-ol-preis-rythmus:before {
+  content: "\f2aa";
+}
+.pcm-ol-preis-indifferent:before {
+  content: "\f2af";
+}
+.pcm-ol-preis-import:before {
+  content: "\f2a5";
+}
+.pcm-ol-preis-guenstiger:before {
+  content: "\f2ad";
+}
+.pcm-ol-kostenstelle:before {
+  content: "\f31b";
+}
+.pcm-ol-ablage-dokument:before {
+  content: "\74";
+}
+.pcm-ol-baum:before {
+  content: "\f333";
+}
+.pcm-ol-artikel-ordersatz:before {
+  content: "\f6a2";
+}
+.pcm-ol-ordersatz:before {
+  content: "\f6a1";
+}
+.pcm-ol-dokument-einkaufsliste:before {
+  content: "\f177";
+}
+.pcm-ol-muelleimer-voll:before {
+  content: "\f5d2";
+}
+.pcm-ol-muelleimer-offen:before {
+  content: "\f5a1";
+}
+.pcm-ol-muelleimer-leer-odeckel:before {
+  content: "\f5d1";
+}
+.pcm-ol-muelleimer-geschlossen-ol:before {
+  content: "\4d";
+}
+.pcm-ol-muelleimer-ausleeren:before {
+  content: "\6d";
+}
+.pcm-ol-einkaufskorb-ol:before {
+  content: "\72";
+}
+.pcm-ol-einkaufskorb-hinzufuegen:before {
+  content: "\f18b";
+}
+.pcm-ol-einkaufskorb-bearbeiten:before {
+  content: "\f18a";
+}
+.pcm-ol-einkaufswagen:before {
+  content: "\52";
+}
+.pcm-ol-einkaufswagen-hinzufuegen:before {
+  content: "\53";
+}
+.pcm-ol-einkaufswagenliste:before {
+  content: "\f6d4";
+}
+.pcm-ol-einkaufswagenliste-hinzufuegen:before {
+  content: "\f6d5";
+}
+.pcm-ol-lieferant-lkw:before {
+  content: "\57";
+}
+.pcm-ol-lieferanten-ueberblick:before {
+  content: "\f698";
+}
+.pcm-ol-lieferanten-info:before {
+  content: "\f699";
+}
+.pcm-ol-speichern:before {
+  content: "\59";
+}
+.pcm-ol-lager-bestand:before {
+  content: "\f239";
+}
+.pcm-ol-lager-spind:before {
+  content: "\f23e";
+}
+.pcm-ol-klemmbrett:before {
+  content: "\f4cb";
+}
+.pcm-ol-lager-bestandserfassung:before {
+  content: "\f4c9";
+}
+.pcm-ol-auge-ueberblick-ol:before {
+  content: "\2c";
+}
+.pcm-ol-uebernehmen:before {
+  content: "\32";
+}
+.pcm-ol-liste-lang:before {
+  content: "\f2e6";
+}
+.pcm-ol-liste-kurz:before {
+  content: "\f2e7";
+}
+.pcm-ol-person-m:before {
+  content: "\60";
+}
+.pcm-ol-mandant-artikel-neu:before {
+  content: "\f46f";
+}
+.pcm-ol-sackkarre:before {
+  content: "\73";
+}
+.pcm-ol-produktion-kochmuetze:before {
+  content: "\50";
+}
+.pcm-ol-detailansicht:before {
+  content: "\f339";
+}
+.pcm-ol-buch-offen:before {
+  content: "\f4d6";
+}
+.pcm-ol-budget-buch:before {
+  content: "\f4d1";
+}
+.pcm-ol-stationsbedarf:before {
+  content: "\f329";
+}
+.pcm-ol-handelsware:before {
+  content: "\f357";
+}
+.pcm-ol-baumdarstellung:before {
+  content: "\5f";
+}
+.pcm-ol-zusatzstoffe-erlmeyerkolben:before {
+  content: "\3e";
+}
+.pcm-ol-topf-mittel-offen:before {
+  content: "\7d";
+}
+.pcm-ol-produktionsplanung:before {
+  content: "\f37e";
+}
+.pcm-ol-produktion-loeffel:before {
+  content: "\f371";
+}
+.pcm-ol-hilfe:before {
+  content: "\2b";
+}
+.pcm-ol-leerzeichen:before {
+  content: "\20";
+}
+.pcm-ol-dokument-letztes-holen:before {
+  content: "\f22f";
+}
+.pcm-ol-home:before {
+  content: "\4c";
+}
+.pcm-ol-exit-datei-schliessen:before {
+  content: "\31";
+}
+.pcm-ol-pflege:before {
+  content: "\f134";
+}

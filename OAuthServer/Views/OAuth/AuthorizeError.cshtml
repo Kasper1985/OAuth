@@ -1,0 +1,23 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+@using Microsoft.Owin
+@{
+    Layout = null;
+    IOwinContext owinContext = Context.GetOwinContext();
+    var error = owinContext.Get<string>("oauth.Error");
+    var errorDescription = owinContext.Get<string>("oauth.ErrorDescription");
+    var errorUri = owinContext.Get<string>("oauth.ErrorUri");
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authorize Error</title>
+</head>
+<body>
+    <h1>OAuth2 Authorize Error</h1>
+    <p>Error: @error</p>
+    <p>@errorDescription</p>
+    <p><a href="@errorUri">More details</a></p>
+</body>
+</html>

@@ -1,0 +1,68 @@
+﻿body {
+    justify-content: center;
+}
+
+.login-area {
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    padding: 48px 40px 36px;
+    width: 250px;
+    margin-top: 50px;
+}
+
+.login-form {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+    .login-form div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .login-form div:not(.floating-label):not(:first-child) {
+        margin-top: 20px;
+    }
+
+    .login-form input:not([type="checkbox"]) {
+        padding: 6px 8px;
+        font-family: inherit;
+        font-size: 12pt;
+        width: 100%;
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="password"] {
+        border: 1px solid #dadce0;
+        border-radius: 3px;
+    }
+
+    .login-form .pcm-logo,
+    .login-form .title {
+        justify-content: center;
+    }
+
+    .login-form .floating-label {
+        margin-top: 1.5em;
+    }
+
+        .login-form .floating-label label {
+            position: absolute;
+            transition: all .2s;
+            transform: translate(9px, 7px);
+        }
+
+        .login-form .floating-label input:focus + label,
+        .login-form .floating-label input:not(:placeholder-shown) + label {
+            transform-origin: left;
+            transform: translate(0, -1.25em) scale(.75);
+        }
+
+    .login-form .remember-me {
+        justify-content: flex-end;
+    }
+
+.pcm-logo img {
+    width: 200px;
+    height: 49px;
+}

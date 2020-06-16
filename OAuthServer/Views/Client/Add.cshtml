@@ -1,0 +1,83 @@
+﻿@using Models.Enumerations;
+@using OAuthServer.Content.Languages;
+
+@model Models.Client
+
+@{
+    ViewBag.Title = "Add client";
+
+    var selectList = new List<SelectListItem>();
+    foreach (ClientType clientType in Enum.GetValues(typeof(ClientType)))
+    {
+        selectList.Add(new SelectListItem { Text = clientType.ToString(), Value = $"{(int)clientType}" });
+    }
+}
+
+@Styles.Render("~/Content/Styles/Client.css")
+
+<div class="add-client">
+    <div class="header">
+        <h2>@Translator.Instance.Translate("CLIENT.ADD.HEADER")</h2>
+    </div>
+    @using (Html.BeginForm("Add", "Client", FormMethod.Post, new { @class = "add-client-form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.UserID)
+        <div class="client-property">
+            <div><h4>@Translator.Instance.Translate("CLIENT.ADD.FORM.NAME")</h4></div>
+            <div>@Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "My app" } })</div>
+        </div>
+        <div class="client-property">
+            <div><h4>@Translator.Instance.Translate("CLIENT.ADD.FORM.URI")*</h4></div>
+            <div>
+                @Html.EditorFor(model => model.URI, new { htmlAttributes = new { placeholder = "https://myapp.com/callback",  required = "", type = "url" }})
+            </div>
+        </div>
+        <div class="client-property">
+            <div><h4>@Translator.Instance.Translate("CLIENT.ADD.FORM.TYPE")</h4></div>
+            <div>
+                @Html.DropDownListFor(model => model.Type, new SelectList(selectList, "Value", "Text"))
+            </div>
+        </div>
+        <div class="client-property">
+            <div><h4>@Translator.Instance.Translate("CLIENT.ADD.FORM.DEVELOPER")</h4></div>
+            <div>@Html.EditorFor(model => model.Developer, new { htmlAttributes = new { placeholder = "Developer/Company name" } })</div>
+        </div>
+        <div class="client-property">
+            <div class="tooltip">
+                <h4>@Translator.Instance.Translate("CLIENT.ADD.FORM.SECRET")&#9432;</h4>
+                <span class="tooltiptext">@Translator.Instance.Translate("CLIENT.ADD.FORM.SECRET-TOOLTIP")</span>
+            </div>
+            <div>
+                @Html.EditorFor(model => model.Secret, new
+                {
+                    htmlAttributes = new 
+                    {
+                        type = "password",
+                        title = Translator.Instance.Translate("CLIENT.ADD.FORM.SECRET-VALIDATION"),
+                        pattern = @"(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}",
+                        onchange = "onChangeSecret(this);" 
+                    }
+                })
+                <input id="SecretConfirm" name="SecretConfirm" type="password" title="@Translator.Instance.Translate("CLIENT.ADD.FORM.SECRET-CONFIRM")" onchange="onChangeSecretConfirm(this);"/>
+            </div>
+        </div>
+        <div class="add-client-actions">
+            <input type="submit" value="@Translator.Instance.Translate("COMMAND.ADD")" class="custom-button green" />
+            @Html.ActionLink(Translator.Instance.Translate("COMMAND.CANCEL"), "Index", "Client", null, new { @class = "custom-button gray" })
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+    function onChangeSecret(field) {
+        field.setCustomValidity(field.validity.patternMismatch ? field.title : '');
+        if (field.value != field.form.SecretConfirm.value) {
+            field.form.SecretConfirm.setCustomValidity(field.form.SecretConfirm.title);
+        }
+    }
+
+    function onChangeSecretConfirm(field) {
+        field.setCustomValidity(field.value != field.form.Secret.value ? field.title : '');
+    }
+</script>

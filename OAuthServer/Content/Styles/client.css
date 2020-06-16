@@ -1,0 +1,112 @@
+﻿.clients {
+	width: 100%;
+	padding: 0 2rem;
+}
+
+	.clients .header {
+		text-align: center;
+        position: relative;
+	}
+
+        .clients .header .custom-button {
+            position: absolute;
+            left: 0;
+        }
+
+	.clients .client-header-info {
+		display: flex;
+	}
+
+		.clients .client-header-info .flex-span {
+			flex-grow: 1;
+		}
+
+		.clients .client-header-info div:first-child {
+			flex-basis: 10%;
+		}
+
+	    .clients .client-detailed-info .client-property {
+		    display: flex;
+		    align-items: baseline;
+	    }
+
+		    .clients .client-detailed-info .client-property div:first-child {
+			    flex-basis: 10%;
+		    }
+
+    .clients .scopes-header-info {
+        display: flex;
+    }
+
+        .clients .scopes-header-info .flex-span {
+            flex-grow: 1;
+        }
+
+    .scopes-detailed-info .user-scope {
+        display: flex;
+        flex-flow: row;
+        align-items: baseline;
+    }
+
+        .scopes-detailed-info .user-scope div:first-child {
+            flex-basis: 10%;
+        }
+
+        .scopes-detailed-info .user-scope .scope-description {
+            flex-grow: 1;
+        }
+
+    .clients .client-actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+
+.add-client {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 25%;
+}
+
+    .add-client .add-client-form {
+        display: flex;
+        flex-flow: column;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 1.5rem;
+        width: 100%;
+    }
+
+        .add-client .add-client-form .add-client-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .add-client .add-client-form .client-property {
+            display: flex;
+            align-items: baseline;
+        }
+
+            .add-client .add-client-form .client-property div:first-child {
+                flex-basis: 20%;
+            }
+
+            .add-client .add-client-form .client-property div:last-child {
+                flex-grow: 1;
+                display: flex;
+                flex-flow: column;
+            }
+
+        .add-client .add-client-form input[type="text"],
+        .add-client .add-client-form input[type="url"],
+        .add-client .add-client-form input[type="password"],
+        .add-client .add-client-form select {
+            width: 100%;
+            padding: .8rem 1.2rem;
+            margin: .5rem 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }

@@ -1,0 +1,57 @@
+﻿.auth-area {
+    padding: 48px 40px 36px;
+    margin-top: 50px;
+    max-width: 400px;
+}
+
+    .auth-area .auth-form .application-logo {
+        display: flex;
+        justify-content: center;
+    }
+
+    .auth-area .auth-form .buttons {
+        display: flex;
+        flex-flow: row-reverse nowrap;
+    }
+
+        .auth-area .auth-form .buttons input {
+            font-size: 10pt;
+            padding: 10px 18px;
+        }
+
+            .auth-area .auth-form .buttons > input:not(:last-child) {
+                margin-left: 10px;
+            }
+
+    .auth-area .auth-form .hints {
+        font-size: 8pt;
+    }
+
+        .auth-form .hints p {
+            text-align: justify;
+        }
+
+    .auth-area .auth-form .client-auth-message {
+        display: flex;
+        justify-content: center;
+    }
+
+        .auth-area .auth-form .client-auth-message .client-info {
+            color: #6a6a6a;
+            cursor: help;
+        }
+
+    .auth-area .auth-form > div:not(:first-child) {
+        margin-top: 10px;
+    }
+
+    .auth-area .auth-form .scopes > div {
+        padding: 15px 50px;
+        border-color: #e8e8e8;
+        border-style: solid;
+        border-width: 1px 0 0 0;
+    }
+
+        .auth-area .auth-form .scopes > div:last-child {
+            border-bottom-width: 1px;
+        }

@@ -1,0 +1,59 @@
+﻿.wrap-collapsible .collapsible {
+    color: white;
+    cursor: pointer;
+    padding: 1rem;
+    border: none;
+    text-align: left;
+    outline: none;
+    background-color: #555;
+    font-weight: 600;
+    font-family: metronic-pro, 'Segoe UI', segoe-ui, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+    .wrap-collapsible .collapsible.invert-colors {
+        color: inherit;
+        background-color: #e1e1e1;
+    }
+
+    .wrap-collapsible.collapsed .collapsible {
+        background-color: #777;
+    }
+
+        .wrap-collapsible.collapsed .collapsible.invert-colors {
+            background-color: inherit;
+        }
+
+    .wrap-collapsible.collapsed .collapsible:hover {
+        background-color: #555;
+    }
+
+        .wrap-collapsible.collapsed .collapsible.invert-colors:hover {
+            background-color: #e1e1e1;
+        }
+
+
+.wrap-collapsible .collapsible-symbol::after {
+    content: "\2212";
+    color: white;
+    font-weight: bold;
+}
+
+    .wrap-collapsible.collapsed .collapsible-symbol::after {
+        content: '\002B';
+    }
+
+        .wrap-collapsible .collapsible.invert-colors .collapsible-symbol::after {
+            color: inherit;
+        }
+
+
+.wrap-collapsible .collapsible-content {
+    padding: 0 1rem;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+    .wrap-collapsible.collapsed .collapsible-content {
+        height: 0;
+    }

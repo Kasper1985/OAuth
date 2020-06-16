@@ -1,0 +1,383 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0EA6FED6-E0F6-48B3-95A4-B13313EF87EF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OAuthServer</RootNamespace>
+    <AssemblyName>OAuthServer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Images\avatar-icon.png" />
+    <Content Include="Content\Scripts\collapsible.js" />
+    <Content Include="Content\Fonts\metronic-pro\styles.css" />
+    <Content Include="Content\Fonts\noto-sans\LICENSE.txt" />
+    <Content Include="Content\Fonts\noto-sans\styles.css" />
+    <Content Include="Content\Fonts\pcm-icon\pcm-outline-webicons.svg" />
+    <Content Include="Content\Fonts\pcm-icon\icons-reference.html" />
+    <Content Include="Content\Fonts\pcm-icon\styles.css" />
+    <Content Include="Content\Fonts\segoe-ui\styles.css" />
+    <Content Include="Content\Images\favicon.png" />
+    <Content Include="Content\Images\logo_white.png" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Styles\Account.css" />
+    <Content Include="Content\Styles\Applications.css" />
+    <Content Include="Content\Styles\Auth.css" />
+    <Content Include="Content\Styles\Collapsible.css" />
+    <Content Include="Content\Styles\CornerRibbon.css" />
+    <Content Include="Content\Styles\CustomButton.css" />
+    <Content Include="Content\Styles\CustomCheckbox.css" />
+    <Content Include="Content\Styles\DropDownButton.css" />
+    <Content Include="Content\Styles\Login.css" />
+    <Content Include="Content\Styles\Logout.css" />
+    <Content Include="Content\Styles\NotificationBox.css" />
+    <Content Include="Content\Styles\Permissions.css" />
+    <Content Include="Content\Styles\Site.css" />
+    <Content Include="Content\Fonts\metronic-pro\MetronicPro-Air.otf" />
+    <Content Include="Content\Fonts\metronic-pro\MetronicPro-AirItalic.otf" />
+    <Content Include="Content\Fonts\metronic-pro\MetronicPro-Black.otf" />
+    <Content Include="Content\Fonts\metronic-pro\MetronicPro-BlackItalic.otf" />
+    <Content Include="Content\Fonts\metronic-pro\MetronicPro-Bold.otf" />
+    <Content Include="Content\Fonts\metronic-pro\MetronicPro-BoldItalic.otf" />
+    <Content Include="Content\Fonts\metronic-pro\MetronicPro-Light.otf" />
+    <Content Include="Content\Fonts\metronic-pro\MetronicPro-LightItalic.otf" />
+    <Content Include="Content\Fonts\metronic-pro\MetronicPro-Regular.otf" />
+    <Content Include="Content\Fonts\metronic-pro\MetronicPro-RegularItalic.otf" />
+    <Content Include="Content\Fonts\metronic-pro\MetronicPro-SemiBold.otf" />
+    <Content Include="Content\Fonts\metronic-pro\MetronicPro-SemiBoldItalic.otf" />
+    <Content Include="Content\Fonts\noto-sans\NotoSans-Bold.ttf" />
+    <Content Include="Content\Fonts\noto-sans\NotoSans-BoldItalic.ttf" />
+    <Content Include="Content\Fonts\noto-sans\NotoSans-Italic.ttf" />
+    <Content Include="Content\Fonts\noto-sans\NotoSans-Regular.ttf" />
+    <Content Include="Content\Fonts\pcm-icon\pcm-outline-webicons.eot" />
+    <Content Include="Content\Fonts\pcm-icon\pcm-outline-webicons.sfd" />
+    <Content Include="Content\Fonts\pcm-icon\pcm-outline-webicons.ttf" />
+    <Content Include="Content\Fonts\pcm-icon\pcm-outline-webicons.woff" />
+    <Content Include="Content\Fonts\segoe-ui\segoe-ui-bold.ttf" />
+    <Content Include="Content\Fonts\segoe-ui\segoe-ui-italic.ttf" />
+    <Content Include="Content\Fonts\segoe-ui\segoe-ui-italicbold.ttf" />
+    <Content Include="Content\Fonts\segoe-ui\segoe-ui-lite.ttf" />
+    <Content Include="Content\Fonts\segoe-ui\segoe-ui-regular.ttf" />
+    <Content Include="Content\Fonts\segoe-ui\segoe-ui-semibold.ttf" />
+    <Content Include="Content\Languages\en.json" />
+    <Content Include="Content\Languages\de.json" />
+    <Content Include="Content\Styles\Client.css" />
+    <Content Include="application.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\pcm-oauth - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\pcm-oauth - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Content\Styles\Switch.css" />
+    <Content Include="Content\Styles\Tooltip.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\Paths.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\Startup.Routes.cs" />
+    <Compile Include="App_Start\Startup.Unity.cs" />
+    <Compile Include="Attributes\PCMAuthorizeAttribute.cs" />
+    <Compile Include="Content\Languages\Translator.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicationsController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
+    <Compile Include="Controllers\OAuthController.cs" />
+    <Compile Include="Controllers\OpenIDConnectController.cs" />
+    <Compile Include="Extensions\IdentityExtensions.cs" />
+    <Compile Include="Extensions\IOwinRequestExtension.cs" />
+    <Compile Include="Extensions\TypesConverterExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Application.cs" />
+    <Compile Include="Models\AuthData.cs" />
+    <Compile Include="Models\Enumerations\Status.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\OAuthAccessTokenProvider.cs" />
+    <Compile Include="Providers\OAuthAuthorizationCodeProvider.cs" />
+    <Compile Include="Providers\OAuthAuthorizationServerProvider.cs" />
+    <Compile Include="Providers\OAuthIDTokenProvider.cs" />
+    <Compile Include="Providers\OAuthRefreshTokenProvider.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="connections.config" />
+    <Content Include="Views\OAuth\Index.cshtml" />
+    <Content Include="Views\OAuth\AuthorizeError.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Logout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Views\Applications\Index.cshtml" />
+    <Content Include="Views\Shared\_HeaderNavBar.cshtml" />
+    <Content Include="Views\Applications\PartialTile.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\Client\ClientViewPartial.cshtml" />
+    <Content Include="Views\Client\UserScopeViewPartial.cshtml" />
+    <Content Include="Views\Client\Add.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic.Interfaces\BusinessLogic.Interfaces.csproj">
+      <Project>{d4579096-d625-4a0a-9d10-3ba56e52f788}</Project>
+      <Name>BusinessLogic.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{92a3346e-2799-48e2-b254-1e40ec00c0f4}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Common\Data.Common.csproj">
+      <Project>{E7070653-03CB-4D2B-908A-6EFEE7BA4F30}</Project>
+      <Name>Data.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Interfaces\Data.Interfaces.csproj">
+      <Project>{8a4d83d8-5cef-449b-94cc-ed008ef0534e}</Project>
+      <Name>Data.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.MSSQL\Data.MSSQL.csproj">
+      <Project>{a9cdea8b-6911-4974-89ce-ecc79ee85031}</Project>
+      <Name>Data.MSSQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{7ae53dad-d5bd-4670-956a-aefda6dafa14}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Antlr">
+      <Version>3.5.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.Cors">
+      <Version>5.2.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.Mvc">
+      <Version>5.2.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.Razor">
+      <Version>3.2.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.Web.Optimization">
+      <Version>1.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.WebApi">
+      <Version>5.2.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client">
+      <Version>5.2.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core">
+      <Version>5.2.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Owin">
+      <Version>5.2.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.WebApi.WebHost">
+      <Version>5.2.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.WebPages">
+      <Version>3.2.7</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <Version>2.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin">
+      <Version>4.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Cors">
+      <Version>4.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Host.SystemWeb">
+      <Version>4.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Security">
+      <Version>4.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Security.Cookies">
+      <Version>4.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Security.OAuth">
+      <Version>4.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Web.Infrastructure">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Modernizr">
+      <Version>2.8.3</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Owin">
+      <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Configuration.ConfigurationManager">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Reflection.Emit">
+      <Version>4.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe">
+      <Version>4.5.2</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.AccessControl">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Permissions">
+      <Version>4.5.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Security.Principal.Windows">
+      <Version>4.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="Unity">
+      <Version>5.10.3</Version>
+    </PackageReference>
+    <PackageReference Include="Unity.Abstractions">
+      <Version>4.1.3</Version>
+    </PackageReference>
+    <PackageReference Include="Unity.AspNet.WebApi">
+      <Version>5.10.0</Version>
+    </PackageReference>
+    <PackageReference Include="Unity.Container">
+      <Version>5.10.3</Version>
+    </PackageReference>
+    <PackageReference Include="Unity.Mvc">
+      <Version>5.10.1</Version>
+    </PackageReference>
+    <PackageReference Include="WebActivatorEx">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="WebGrease">
+      <Version>1.6.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\PCM\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8080</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:8080</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

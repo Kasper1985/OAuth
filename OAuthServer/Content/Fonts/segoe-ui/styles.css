@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'segoe-ui';
+  src: url('segoe-ui-regular.ttf'); /* IE9 Compatibility Modes */
+  src: url('segoe-ui-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'segoe-ui';
+  src: url('segoe-ui-bold.ttf'); /* IE9 Compatibility Modes */
+  src: url('segoe-ui-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'segoe-ui';
+  src: url('segoe-ui-italic.ttf'); /* IE9 Compatibility Modes */
+  src: url('segoe-ui-italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'segoe-ui';
+  src: url('segoe-ui-italicbold.ttf'); /* IE9 Compatibility Modes */
+  src: url('segoe-ui-italicbold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+	font-family: 'segoe-ui';
+	src: url('segoe-ui-lite.ttf'); /* IE9 Compatibility Modes */
+	src: url('segoe-ui-lite.ttf') format('truetype');
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'segoe-ui';
+	src: url('segoe-ui-semibold.ttf'); /* IE9 Compatibility Modes */
+	src: url('segoe-ui-semibold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}

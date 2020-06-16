@@ -1,0 +1,56 @@
+﻿/* Definition of the container */
+.custom-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: 12pt;
+    user-select: none;
+}
+
+    /* Hide the browser's default check box */
+    .custom-checkbox input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    /* Create a custom check box */
+    .custom-checkbox .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+    }
+
+        .custom-checkbox .checkmark:after {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+            display: none;
+        }
+
+    /* On mouse-over, add a Grey background color */
+    .custom-checkbox:hover input ~ .checkmark {
+        background-color: #ccc;
+    }
+
+    /* Set background to blue if the check box is checked */
+    .custom-checkbox input:checked ~ .checkmark {
+        background-color: #2196f3;
+    }
+
+        /* Show check mark if the check box is checked */
+        .custom-checkbox input:checked ~ .checkmark:after {
+            display: block;
+        }
