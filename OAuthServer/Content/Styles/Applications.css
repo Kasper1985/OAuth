@@ -1,41 +1,200 @@
-﻿.applications {
-    margin-top: 100px;
+﻿@import url("../Fonts/metronic-pro/styles.css");
+@import url("../Fonts/web-icons/styles.css");
+
+.side-nav {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--general-text-black005);
+    position: relative;
+    flex-basis: 180px;
+    padding-left: 0;
+    box-sizing: border-box;
+    transition: flex-basis .3s ease-in-out,
+                padding-left .3s ease-in-out;
+    overflow-x: hidden;
 }
 
-    .applications .tile-link {
-        color: initial;
-        text-decoration: none;
+    .side-nav.collapsed {
+        flex-basis: 20px;
+        padding-left: 20px;
     }
 
-    .applications .tile {
-        min-width: 250px;
-        min-height: 250px;
-        background-color: #FEEDD1;
-        border: 1px solid #F6F8F8;
-        border-radius: 7px;
+    .side-nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
 
+    .side-nav span[class^="pcm-ol-"] {
+        font-size: 20pt;
+        padding-right: 10px;
+    }
+
+        .side-nav ul a {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            color: var(--pcm-red);
+            padding: 0 16px;
+        }
+
+    .side-nav .expander {
+        position: absolute;
+        align-self: flex-end;
+        padding-right: 6px;
+        cursor: pointer;
+        font-size: 16pt;
+        transition: transform .3s ease-in-out;
+    }
+
+        .side-nav.collapsed .expander {
+            transform: rotateY(180deg);
+        }
+
+.apps {
+    padding-top: 1.8em;
+}
+
+.general {
+    padding-bottom: .5em;
+}
+
+.content {
+    flex: 1 1;
+    display: flex;
+}
+
+.applications {
+    flex-basis: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--pcm-red);
+    padding: 0 45px 20px 45px;
+    font-size: 16pt;
+    font-family: metronic-pro, 'Segoe UI', segoe-ui, Tahoma, Geneva, Verdana, sans-serif;
+}
+
+    .tile span[class^="pcm-ol-"] {
+        font-size: 80pt;
+        color: var(--general-text-black020);
+    }
+
+.news {
+    flex-basis: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+    .news form {
         display: flex;
         align-items: center;
-        justify-content: center;
-        text-decoration: none;
+        margin-bottom: 2em;
     }
 
-        .applications .tile:hover {
-            border-color: #D1D3D4;
-            box-shadow: 0 0 24px #FAA61A;
-            cursor: pointer;
+    .news input {
+        padding: 5px;
+        border: 1px solid var(--general-text-black010);
+        width: 215px;
+        margin-right: .5em;
+    }
+
+        .news input::-webkit-input-placeholder {
+            color: var(--general-text-black020);
+        }
+        .news input:-moz-placeholder {
+            color: var(--general-text-black020);
+        }
+        .news input::-moz-placeholder {
+            color: var(--general-text-black020);
+        }
+        .news input:-ms-input-placeholder {
+            color: var(--general-text-black020);
         }
 
-        .applications .tile .title {
-            font-family: metronic-pro, 'Segoe UI', segoe-ui, Tahoma, Geneva, Verdana, sans-serif;
-            font-weight: 600;
+    .news span[class^="pcm-ol-"] {
+        font-size: 16pt;
+        color: var(--pcm-red);
+        cursor: pointer;
+    }
+
+    .news .general-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 30px 5px 10px;
+        box-sizing: border-box;
+        height: 30px;
+        background: var(--headline100);
+        color: white;
+        font-size: 9pt;
+    }
+
+        .news .general-title span[class^="pcm-ol-"] {
+            color: white;
+            transition: transform .3s ease-in-out;
         }
 
-        .applications .tile:hover .title {
-            font-size: large;
+        .general-title.collapsed span[class^="pcm-ol-"] {
+            transform: rotateX(180deg);
+        }
+
+    .news .all-news {
+        max-height: 100%;
+        overflow: hidden;
+        transition: max-height .3s ease-in-out;
+    }
+
+        .news .all-news.collapsed {
+            max-height: 0;
+        }
+
+.news-bundle {
+    font-size: 9pt;
+    color: var(--general-text-black060);
+}
+
+    .news-bundle div:first-child,
+    .news-bundle .news-message {
+        box-sizing: border-box;
+        border-bottom: 1px solid var(--general-text-black010);
+        display: flex;
+        align-items: center;
+        height: 30px;
+    }
+
+    .news-bundle span[class^="pcm-ol-"] {
+        display: inline-block;
+        transition: transform .3s ease-in-out;
+    }
+
+    .news-bundle .bundle-title {
+        font-weight: 500;
+        padding-left: 10px;
+    }
+
+    .news-message span:first-child {
+        padding: 0 5px 0 31px;
+    }
+
+    .news-bundle .messages {
+        max-height: 100%;
+        overflow: hidden;
+        transition: max-height .3s ease-in-out;
+    }
+
+        .news-bundle.collapsed .messages {
+            max-height: 0;
+        }
+
+        .news-bundle.collapsed span[class^="pcm-ol-"] {
+            transform: rotateX(180deg);
         }

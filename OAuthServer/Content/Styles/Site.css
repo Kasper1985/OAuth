@@ -1,6 +1,7 @@
-﻿@import url("../Fonts/noto-sans/styles.css");
-@import url("../Fonts/segoe-ui/styles.css");
-@import url("../Fonts/metronic-pro/styles.css");
+﻿:root {
+    --load-bar-height: 16px;
+    --nav-bar-height: 64px;
+}
 
 html,
 body {
@@ -11,17 +12,48 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    font-family: 'Segoe UI', segoe-ui, Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: metronic-pro, 'Segoe UI', segoe-ui, Tahoma, Geneva, Verdana, sans-serif;
+.load-bar {
+    background: linear-gradient(90deg, var(--pcm-red) 0%, var(--pcm-pink) 100%);
+    height: var(--load-bar-height);
+    width: 100%;
 }
+
+.navbar {
+    position: relative;
+    height: var(--nav-bar-height);
+    background-color: var(--general-text-black010);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+}
+
+    .navbar .logo {
+        width: 164px;
+    }
+
+    .navbar section:last-child {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar .user-data {
+        font-size: 10pt;
+        padding-right: 1em;
+    }
+
+    .navbar .settings {
+        font-size: 24pt;
+        color: var(--pcm-red);
+        cursor: pointer;
+    }
 
 .content-area {
-    margin-top: 50px;
     display: flex;
-    justify-content: center;
+    height: calc(100vh - var(--load-bar-height) - var(--nav-bar-height));
 }
 
 a.button {
@@ -40,16 +72,11 @@ a.button {
     background-color: #DDD;
 }
 
+
+
 /* Bootstrap parts */
-.navbar {
-    position: relative;
-    min-height: 50px;
-    margin-bottom: 20px;
-    border: 1px solid transparent;
-    background-color: #e6e6e6;
-    display: flex;
-    align-items: center;
-}
+
+
 
     .navbar .container {
         height: 40px;

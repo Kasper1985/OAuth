@@ -5,31 +5,115 @@
 }
 
 @Styles.Render("~/Content/Styles/Login.css")
+@Scripts.Render("~/Content/Scripts/login.js")
 
-<div class="login-area">
-    <form method="post" class="login-form">
-        <div class="pcm-logo">
-            <img src="~/Content/Images/logo.png" alt="pcm" />
+<div class="form-area">
+    @if ((string)this.ViewData["password"] != "True")
+    {
+        <form method="post">
+            @Html.AntiForgeryToken()
+            <img class="pcm-logo" src="~/Content/Images/logo.png" alt="pcm" />
+
+            <div class="input-container">
+                <span class="pcm-ol-person-m"></span>
+                <input id="login" name="login" placeholder="@Translator.Instance.Translate("ACCOUNT.LOGIN.USER-NAME")" />
+            </div>
+            <div class="input-container">
+                <span class="pcm-ol-schlüssel"></span>
+                <input autocomplete="off" id="password" name="password" placeholder="@Translator.Instance.Translate("ACCOUNT.LOGIN.PASSWORD")" type="password" />
+            </div>
+        
+            <div class="button-container">
+                <span class="pcm-ol-schloss-offen-1"></span>
+                <input class="custom-button primary" name="submit.login" value="@Translator.Instance.Translate("ACCOUNT.LOGIN.LOGIN")" type="submit" />
+            </div>
+        </form>
+
+        <div class="additional">
+            @Html.ActionLink(Translator.Instance.Translate("ACCOUNT.LOGIN.PASSWORD-LOST"), "login", new { requestPassword = true })
+            @Html.ActionLink(Translator.Instance.Translate("ACCOUNT.LOGIN.REMOTE-ASSISTANCE"), "#")
+            <a onclick="showRequirements()">@Translator.Instance.Translate("ACCOUNT.LOGIN.REQUIREMENTS")</a>
         </div>
-        <div class="title">
-            <h2>@Translator.Instance.Translate("ACCOUNT.LOGIN.HEADER")</h2>
-        </div>
-        <div class="floating-label">
-            @Html.TextBox("login", "", new { placeholder = " " })
-            <label for="login">Login</label>
-        </div>
-        <div class="floating-label">
-            @Html.Password("password", "", new { placeholder = " ", autocomplete = "off" })
-            <label for="password">Password</label>
-        </div>
-        @*<div class="remember-me">
-            <label class="checkbox-container">
-                <input id="isPersistent" name="isPersistent" type="checkbox" />
-                <span class="checkmark"></span>Remember me
-            </label>
-        </div>*@
-        <div>
-            <input class="custom-button red" name="submit.login" value="@Translator.Instance.Translate("ACCOUNT.LOGIN.LOGIN")" type="submit" />
-        </div>
-    </form>
+    }
+    else 
+    {
+        using (Html.BeginForm("password", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <img class="pcm-logo" src="~/Content/Images/logo.png" alt="pcm" />
+
+            <div class="hint">
+                <strong>@Translator.Instance.Translate("ACCOUNT.PASSWORD.HINT-HEADER")</strong>
+                <span>@Translator.Instance.Translate("ACCOUNT.PASSWORD.HINT-TEXT")</span>
+            </div>
+
+            <div class="input-container">
+                <span class="pcm-ol-person-m"></span>
+                <input id="name" name="name" placeholder="@Translator.Instance.Translate("ACCOUNT.PASSWORD.NAME")" />
+            </div>
+            <div class="input-container">
+                <span class="pcm-ol-person-m"></span>
+                <input id="name-first" name="name-first" placeholder="@Translator.Instance.Translate("ACCOUNT.PASSWORD.NAME-FIRST")" />
+            </div>
+            <div class="input-container">
+                <span class="pcm-ol-post-brief"></span>
+                <input id="email" name="email" placeholder="@Translator.Instance.Translate("ACCOUNT.PASSWORD.EMAIL")" />
+            </div>
+            <div class="button-container">
+                <span class="pcm-ol-post-versenden"></span>
+                <input class="custom-button primary" name="submit.password" value="@Translator.Instance.Translate("ACCOUNT.PASSWORD.REQUEST")" type="submit" />
+            </div>
+            @Html.ActionLink(Translator.Instance.Translate("ACCOUNT.PASSWORD.BACK"), "login", routeValues: null, htmlAttributes: new { @class = "pcm-ol-pfeil-links" })
+        }
+    }
 </div>
+
+<div class="background-lock" onclick="hideRequirements()"></div>
+<section class="requirements">
+    <div class="requirements-header">
+        <span>@Translator.Instance.Translate("GENERAL.REQUIREMENTS.HEADER")</span>
+        <span onclick="hideRequirements()">&times;</span>
+    </div>
+    <div class="requirements-body">
+        <h5>Grundkonfiguration</h5>
+        <ul>
+            <li>Zeitgemäße Hardwareausstattung mit aktueller Prozessorgeneration und mindestens 4 GB Arbeitsspeicher, der Einsatz einer SSD wird empfohlen</li>
+            <li>Betriebssystem mindestens MS Windows 7, empfohlen MS Windows 10<sup>1</sup> mit aktuellen Updates</li>
+            <li>Bildschirmauflösung mind. 1280x768, empfohlen 1280x1024 (oder höher)</li>
+            <li>Internetzugang zur Seite <a href="https://procareline.com/ecare">https://procareline.com/ecare</a></li>
+            <li>Bandbreite mind. DSL 16000 kBit/s</li>
+            <li>Freigeschalteter Port 80 und 443 auf Firewalls</li>
+            <li>Installierter Adobe Reader ab Version 10 zur Anzeige von pdf-Dokumenten</li>
+            <li>Domänen „procareline.com“ und „procareline.net“ müssen in der Firewall vollständig freigegeben sein</li>
+            <li>Druckerzugang für den Druck von Bestellungen, Zähllisten usw.</li>
+        </ul>
+        <h5>Browserkonfiguration</h5>
+        <ul>
+            <li>Google Chrome<sup>2</sup> ab Version 63.x<sup>3</sup></li>
+            <li>https://procareline.com (Domain) muss zu den vertrauenswürdigen Seiten hinzugefügt werden</li>
+            <li>
+                In den Sicherheitseinstellungen für vertrauenswürdige Sites müssen folgende Optionen aktiviert sein:
+                <ol>
+                    <li>JavaScript</li>
+                    <li>Dateidownload (für Infothek-Dokumente)</li>
+                </ol>
+            </li>
+            <li>Popups von https://procareline.com müssen zugelassen sein</li>
+            <li>Cookies von https://procareline.com müssen zugelassen sein</li>
+            <li>Neuere Versionen der gespeicherten Seiten bei jedem Zugriff auf die Webseite suchen (Temporäre Internetdateien)</li>
+        </ul>
+        <h5>Erweiterte Konfiguration</h5>
+        <ul>
+            <li>Microsoft Excel ab Version 2010 (oder entsprechendes Office-Paket) für die Nachbearbeitung von exportierten Speiseplänen bei Einsatz des Produktionsmoduls.</li>
+            <li>Speicherort für die Ablage exportierter Dateien (Infothekdokumente, Speisepläne, etc.).</li>
+            <li>Windows Media Player 9 (oder höher) und angeschlossene Lautsprecher zum Abspielen der Schulungsvideos</li>
+            <li>Download bzw. Ausführung der Fernwartungssoftware Teamviewer<sup>4</sup> über den Link <a href="https://procareline.com/service/remote/fernwartung.exe">https://procareline.com/service/remote/fernwartung.exe</a></li>
+        </ul>
+        <span><sup>1</sup> bis zu 30% Geschwindigkeitssteigerung je nach Hardwareausstattung</span>
+        <span><sup>2</sup> beim Einsatz anderer Browser (Firefox, Opera) stehen nicht alle Programmfunktionen zur Verfügung.</span>
+        <span><sup>3</sup> ältere Versionen können den Seitenaufbau verlangsamen und Funktionalitäten beeinträchtigen.</span>
+        <span><sup>4</sup> Begleitend zum telefonischen Support bieten wir Ihnen die Fernwartung über Ihren PC an. So helfen Ihnen unsere Support-Mitarbeiter als wären sie bei Ihnen vor Ort. Auf dem Gastrechner werden keinerlei Veränderungen (wie z.B. Registry-Einträge) vorgenommen. Das via Internet bereitgestellte Modul wird lediglich in den Arbeitsspeicher geladen.</span>
+
+    </div>
+</section>
+

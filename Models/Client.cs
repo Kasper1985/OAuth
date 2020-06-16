@@ -4,9 +4,9 @@ namespace Models
 {
     public class Client
     {
-        public string ID { get; set; }
+        public string ID { get; set; } = "";
         public string Secret { get; set; }
-        public string URI { get; set; }
+        public string URI { get; set; } = "";
         public string Name { get; set; }
         public string Developer { get; set; }
         public ClientType Type { get; set; }

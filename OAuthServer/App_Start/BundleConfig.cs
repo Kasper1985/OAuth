@@ -19,10 +19,11 @@ namespace OAuthServer
                 "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/Styles/css").Include(
-                "~/Content/Styles/site.css",
+                "~/Content/Styles/Colors.css",
+                "~/Content/Styles/Site.css",
                 "~/Content/Styles/NotificationBox.css",
                 "~/Content/Styles/CornerRibbon.css",
-                "~/Content/Styles/dropdownbutton.css",
+                "~/Content/Styles/Dropdownbutton.css",
                 "~/Content/Styles/Tooltip.css",
                 "~/Content/Styles/Collapsible.css",
                 "~/Content/Styles/CustomButton.css",

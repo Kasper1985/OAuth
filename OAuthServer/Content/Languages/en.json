@@ -1,4 +1,13 @@
 {
+  "GENERAL": {
+    "APPLICATIONS": "Applications",
+    "REQUIREMENTS": {
+      "HEADER": "Requirements"
+    },
+    "NEWS": {
+      "RECENT-TOPICS": "Recent topics"
+    }
+  },
   "USER-MENU": {
     "CLIENTS": "Clients",
     "USER-DATA": "Account",
@@ -7,8 +16,22 @@
   "ACCOUNT": {
     "PERMISSIONS": "Applications that have an access to your account",
     "LOGIN": {
+      "USER-NAME": "User name",
+      "PASSWORD": "Password",
       "HEADER": "Login",
-      "LOGIN": "Login"
+      "LOGIN": "Login",
+      "PASSWORD-LOST": "Forgot password",
+      "REMOTE-ASSISTANCE": "Remote accistance",
+      "REQUIREMENTS": "System requirements"
+    },
+    "PASSWORD": {
+      "HINT-HEADER": "Request a new password",
+      "HINT-TEXT": "Forgot your password? Please provide your name, first name and email to request a new password.",
+      "NAME": "Name",
+      "NAME-FIRST": "First name",
+      "EMAIL": "E-Mail",
+      "REQUEST": "Request password",
+      "BACK": "Back to login"
     },
     "LOGOUT": {
       "MESSAGE-MAIN": "You were successfully logged out",
@@ -35,6 +58,11 @@
       "EMAIL": {
         "HEADER": "EMail data"
       }
+    }
+  },
+  "APPLICATIONS": {
+    "FORM": {
+      "TEXT-PLACEHOLDER": "Please enter a search text..."
     }
   },
   "CLIENT": {
@@ -73,7 +101,8 @@
     "DELETE-FAILED": "Delete failed",
     "SAVE-SUCCESS": "Save succeeded",
     "CREATE-SUCCESS": "Creation succeeded",
-    "DELETE-SUCCESS": "Delete succeeded"
+    "DELETE-SUCCESS": "Delete succeeded",
+    "PASSWORD-FAILED": "Password generation failded"
   },
   "COMMAND": {
     "ADD": "Add",

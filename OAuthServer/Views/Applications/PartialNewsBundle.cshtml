@@ -1,0 +1,22 @@
+﻿@using OAuthServer.Models
+
+@model OAuthServer.Models.NewsBundle
+
+<div class="news-bundle">
+    <div>
+        <span class="pcm-ol-winkel-oben" onclick="toggleNewsBundle(this.parentElement.parentElement)"></span>
+        <span class="bundle-title">@Model.Title</span>
+    </div>
+    @if (Model.News?.Count > 0)
+    {
+        <div class="messages">
+            @foreach (News news in Model.News)
+            {
+                <div class="news-message">
+                    <span>@news.Date.ToString("dd.MM.yyyy")</span>
+                    <span>@news.Message</span>
+                </div>
+            }
+        </div>
+    }
+</div>

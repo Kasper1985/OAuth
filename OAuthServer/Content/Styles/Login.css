@@ -1,68 +1,197 @@
-﻿body {
+﻿@import url("../Fonts/web-icons/styles.css");
+
+body {
+    background: url("/Content/Images/main_background.jpg") no-repeat fixed center;
+    background-size: cover;
     justify-content: center;
 }
 
-.login-area {
-    border: 1px solid #dadce0;
-    border-radius: 8px;
-    padding: 48px 40px 36px;
-    width: 250px;
-    margin-top: 50px;
-}
-
-.login-form {
+form {
     display: flex;
     flex-flow: column nowrap;
 }
 
-    .login-form div {
-        display: flex;
-        justify-content: space-between;
+.form-area {
+    padding: 48px 40px 36px;
+    width: 240px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+    .form-area a {
+        color: white;
+        text-decoration: none;
+        padding-left: 8px;
     }
 
-    .login-form div:not(.floating-label):not(:first-child) {
-        margin-top: 20px;
+.pcm-logo {
+    width: 100%;
+    margin: .5em 0;
+}
+
+.input-container {
+    position: relative;
+}
+
+    .input-container:last-child .input-icon {
+        color: white;
     }
 
-    .login-form input:not([type="checkbox"]) {
-        padding: 6px 8px;
-        font-family: inherit;
-        font-size: 12pt;
-        width: 100%;
+input {
+    margin: 5px 0;
+    padding: 6px 8px 6px 27px;
+    font-family: inherit;
+    font-size: 12pt;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+    input[type=submit] {
+        text-align: left;
+        padding-left: 27px;
     }
 
-    .login-form input[type="text"],
-    .login-form input[type="password"] {
-        border: 1px solid #dadce0;
-        border-radius: 3px;
+    input::-webkit-input-placeholder {
+        font-family: 'Segoe UI', segoe-ui, Tahoma, Geneva, Verdana, sans-serif, pcm-outline-webicons;
+        color: var(--secondary-textgray-color);
+    }
+    input:-moz-placeholder {
+        font-family: 'Segoe UI', segoe-ui, Tahoma, Geneva, Verdana, sans-serif, pcm-outline-webicons;
+        color: var(--secondary-textgray-color);
+    }
+    input::-moz-placeholder {
+        font-family: 'Segoe UI', segoe-ui, Tahoma, Geneva, Verdana, sans-serif, pcm-outline-webicons;
+        color: var(--secondary-textgray-color);
+    }
+    input:-ms-input-placeholder {
+        font-family: 'Segoe UI', segoe-ui, Tahoma, Geneva, Verdana, sans-serif, pcm-outline-webicons;
+        color: var(--secondary-textgray-color);
     }
 
-    .login-form .pcm-logo,
-    .login-form .title {
-        justify-content: center;
+.input-container,
+.button-container {
+    position: relative;
+}
+
+    .input-container [class^="pcm-ol-"]::before,
+    .button-container [class^="pcm-ol-"]::before {
+        position: absolute;
+        left: 8px;
+        top: 11px;
+        font-size: 14pt;
+        color: var(--secondary-textgray-color);
     }
 
-    .login-form .floating-label {
-        margin-top: 1.5em;
+    .button-container [class^="pcm-ol-"]::before {
+        color: white;
     }
 
-        .login-form .floating-label label {
-            position: absolute;
-            transition: all .2s;
-            transform: translate(9px, 7px);
-        }
+.additional {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 
-        .login-form .floating-label input:focus + label,
-        .login-form .floating-label input:not(:placeholder-shown) + label {
-            transform-origin: left;
-            transform: translate(0, -1.25em) scale(.75);
-        }
+    background: white;
+    padding: 5px 10px;
+}
 
-    .login-form .remember-me {
-        justify-content: flex-end;
+    .additional a {
+        text-decoration: none;
+        color: var(--primary-darkred-color);
+        padding: 5px 0;
     }
 
-.pcm-logo img {
-    width: 200px;
-    height: 49px;
+.hint {
+    display: flex;
+    flex-direction: column;
+    font-size: 9pt;
+    background: white;
+    padding: 10px;
+}
+
+    .hint span:last-child {
+        padding-top: 1em;
+        color: var(--secondary-textgray-color);
+    }
+
+    a[class^="pcm-ol-"]::before {
+        padding-right: 5px;
+    }
+
+.background-lock {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: black;
+    opacity: .4;
+}
+
+    .background-lock.visible {
+        visibility: visible;
+    }
+
+.requirements {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    box-sizing: border-box;
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+}
+
+    .requirements.visible {
+        visibility: visible;
+    }
+
+.requirements-header {
+    height: 40px;
+    color: white;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--headline100);
+}
+
+    .requirements-header span:first-child {
+        font-size: 10pt;
+        font-weight: 500;
+    }
+
+    .requirements-header span:last-child {
+        font-size: 18pt;
+        margin-top: -6px;
+        cursor: pointer;
+    }
+
+.requirements-body {
+    overflow-y: auto;
+    font-size: 9pt;
+    padding: 0 20px;
+}
+
+    .requirements-body sup {
+        color: var(--general-text-black060);
+    }
+
+    .requirements-body span {
+        display: block;
+    }
+
+@media screen and (max-width: 550px) {
+    .form-area {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
 }

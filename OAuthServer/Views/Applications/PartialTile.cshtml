@@ -1,7 +1,6 @@
 ﻿@model OAuthServer.Models.Application
 
-<a href="@Model.Url" class="tile-link">
-    <div class="tile">
-        <span class="title">@Model.Title</span>
-    </div>
+<a href="@Model.Url" class="tile">
+    <span class="@Model.Icon"></span>
+    <span class="title">@Model.Title</span>
 </a>

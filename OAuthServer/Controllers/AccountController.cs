@@ -44,16 +44,17 @@ namespace OAuthServer.Controllers
             if (this.User.Identity.IsAuthenticated)
                 return RedirectToAction("Index", "Applications");
 
+            ViewData["password"] = this.Request["requestPassword"];
+
             return View("login");
         }
 
         [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         [HttpPost]
         [Route("login")]
         public async Task<ActionResult> LoginPOST()
         {
-            bool isPersistent = !string.IsNullOrEmpty(Request.Form.Get("isPersistent"));
-
             if (!string.IsNullOrEmpty(Request.Form.Get("submit.login")))
                 try
                 {
@@ -69,7 +70,7 @@ namespace OAuthServer.Controllers
                             new Claim(ClaimTypes.Email, user.EMail),
                             new Claim(ClaimTypes.Role, user.ID == 62018 ? "SuperUser" : "User")
                         }, "PCM");
-                        this.AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = isPersistent }, identiy);
+                        this.AuthenticationManager.SignIn(new AuthenticationProperties(), identiy);
 
                         if (!Request.QueryString.HasKeys())
                             return RedirectToAction("Index", "Applications");
@@ -83,6 +84,34 @@ namespace OAuthServer.Controllers
                 }
 
             return View("login");
+        }
+
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        [Route("password")]
+        public async Task<ActionResult> RequestPassword()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(Request.Form.Get("submit.password")))
+                {
+                    await this.userLogic.GenerateNewPasswodAsync(Request.Form["email"], Request.Form["name"], Request.Form["name-first"]);
+                    return RedirectToAction("login");
+                }
+                else
+                {
+                    ViewData["notification"] = ("NOTIFICATION.PASSWORD-FAILED", "Wrong form was sent from the client", Status.ERROR);
+                    ViewData["password"] = "True";
+                    return View("login");
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewData["notification"] = ("NOTIFICATION.PASSWORD-FAILED", ex.ToString(), Status.ERROR);
+                ViewData["password"] = "True";
+                return View("login");
+            }
         }
 
         [HttpGet]

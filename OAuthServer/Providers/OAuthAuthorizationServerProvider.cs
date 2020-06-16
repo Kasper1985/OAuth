@@ -40,38 +40,48 @@ namespace OAuthServer.Providers
                     switch (client.Type)
                     {
                         case ClientType.Public:
-                            string code_verifier = context.Parameters["code_verifier"];
-                            string code = context.Parameters["code"];
-                            if (string.IsNullOrEmpty(code_verifier) || string.IsNullOrEmpty(code))
-                                context.SetError("invalid_client", "\"code_verifier\" or/and \"code\" parameter are missing. Please use Authorization Code Flow with PKCE to authorize the client.");
+                            if (context.Parameters["grant_type"] == "refresh_token")
+                            {
+                                if (string.IsNullOrEmpty(context.Parameters["refresh_token"]))
+                                    context.SetError("invalid_request", "'refresh_toke' must be provided");
+
+                                context.Validated(client_id);
+                            }
                             else
                             {
-                                PKCE pkce = await oauthLogic.FindPKCEAsync(code);
-                                if (pkce != null)
-                                    switch (pkce.CodeChallengeMethod)
-                                    {
-                                        case EncryptionMethod.Plain:
-                                            if (pkce.Equals(code_verifier))
-                                                context.Validated(client_id);
-                                            else
-                                                context.SetError("invalid_client", "Code verifier does not match the code challenge.");
-                                            break;
-
-                                        case EncryptionMethod.S256:
-                                        default:
-                                            using (var sha256 = SHA256.Create())
-                                            {
-                                                byte[] hashValue = sha256.ComputeHash(Encoding.UTF8.GetBytes(code_verifier));
-                                                string codeTest = string.Join("", hashValue.Select(x => $"{x:x2}"));
-                                                if (codeTest.Equals(pkce.CodeChallenge))
+                                string code_verifier = context.Parameters["code_verifier"];
+                                string code = context.Parameters["code"];
+                                if (string.IsNullOrEmpty(code_verifier) || string.IsNullOrEmpty(code))
+                                    context.SetError("invalid_client", "'code_verifier' or/and 'code' parameter are missing. Please use Authorization Code Flow with PKCE to authorize the client.");
+                                else
+                                {
+                                    PKCE pkce = await oauthLogic.FindPKCEAsync(code);
+                                    if (pkce != null)
+                                        switch (pkce.CodeChallengeMethod)
+                                        {
+                                            case EncryptionMethod.Plain:
+                                                if (pkce.CodeChallenge.Equals(code_verifier))
                                                     context.Validated(client_id);
                                                 else
                                                     context.SetError("invalid_client", "Code verifier does not match the code challenge.");
-                                            }
-                                            break;
-                                    }
-                                else
-                                    context.SetError("invalid_client", "code challenge couldn't be found.");
+                                                break;
+
+                                            case EncryptionMethod.S256:
+                                            default:
+                                                using (var sha256 = SHA256.Create())
+                                                {
+                                                    byte[] hashValue = sha256.ComputeHash(Encoding.UTF8.GetBytes(code_verifier));
+                                                    string codeTest = string.Join("", hashValue.Select(x => $"{x:x2}"));
+                                                    if (codeTest.Equals(pkce.CodeChallenge))
+                                                        context.Validated(client_id);
+                                                    else
+                                                        context.SetError("invalid_client", "Code verifier does not match the code challenge.");
+                                                }
+                                                break;
+                                        }
+                                    else
+                                        context.SetError("invalid_client", "code challenge couldn't be found.");
+                                }
                             }
                             break;
 
@@ -91,9 +101,9 @@ namespace OAuthServer.Providers
                             break;
                     }
                 }
-                catch (AmbiguousClientException)    { context.SetError("invalid_client", $"There are more than one client with the id: \"{client_id}\"."); }
-                catch (ClientNotFoundException)     { context.SetError("invalid_client", $"There is no registered clients with the id: \"{client_id}\"."); }
-                catch (Exception)                   { context.SetError("invalid_client", $"An unknown error occurred while searching for the client with id \"{client_id}\"."); }
+                catch (AmbiguousClientException)    { context.SetError("invalid_client", $"There are more than one client with the id: '{client_id}'."); }
+                catch (ClientNotFoundException)     { context.SetError("invalid_client", $"There is no registered clients with the id: '{client_id}'."); }
+                catch (Exception)                   { context.SetError("invalid_client", $"An unknown error occurred while searching for the client with id '{client_id}'."); }
                 finally
                 {
                     if (context.IsValidated)
@@ -108,12 +118,12 @@ namespace OAuthServer.Providers
                 var oauthLogic = this.resolver.GetService(typeof(IOAuth2Logic)) as IOAuth2Logic;
 
                 Client client = await oauthLogic.GetClientAsync(context.ClientId);
-                if (string.Compare(client.URI, context.RedirectUri, StringComparison.CurrentCultureIgnoreCase) == 0)
+                if (string.Compare(client.URI.TrimEnd('/'), context.RedirectUri.TrimEnd('/'), StringComparison.CurrentCultureIgnoreCase) == 0)
                     context.Validated(context.RedirectUri);
             }
-            catch (AmbiguousClientException) { context.SetError("invalid_client", $"There are more than one client with the id: \"{context.ClientId}\"."); }
-            catch (ClientNotFoundException) { context.SetError("invalid_client", $"There is no registered clients with the id: \"{context.ClientId}\"."); }
-            catch (Exception) { context.SetError("invalid_client", $"An unknown error occurred while searching for the client with id \"{context.ClientId}\"."); }
+            catch (AmbiguousClientException) { context.SetError("invalid_client", $"There are more than one client with the id: '{context.ClientId}'."); }
+            catch (ClientNotFoundException) { context.SetError("invalid_client", $"There is no registered clients with the id: '{context.ClientId}'."); }
+            catch (Exception) { context.SetError("invalid_client", $"An unknown error occurred while searching for the client with id '{context.ClientId}'."); }
             
         });
 
@@ -174,9 +184,9 @@ namespace OAuthServer.Providers
                 var identity = new ClaimsIdentity(claims, OAuthDefaults.AuthenticationType);
                 context.Validated(identity);
             }
-            catch (AmbiguousClientException) { context.SetError("invalid_client", $"There are more than one client with the id: \"{context.ClientId}\"."); }
-            catch (ClientNotFoundException) { context.SetError("invalid_client", $"There is no registered clients with the id: \"{context.ClientId}\"."); }
-            catch (Exception) { context.SetError("invalid_client", $"An unknown error occurred while searching for the client with id \"{context.ClientId}\"."); }
+            catch (AmbiguousClientException) { context.SetError("invalid_client", $"There are more than one client with the id: '{context.ClientId}'."); }
+            catch (ClientNotFoundException) { context.SetError("invalid_client", $"There is no registered clients with the id: '{context.ClientId}'."); }
+            catch (Exception) { context.SetError("invalid_client", $"An unknown error occurred while searching for the client with id '{context.ClientId}'."); }
         });
 
         // Authorize user by ---=== Authorization Code Flow ===---

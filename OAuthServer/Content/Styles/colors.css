@@ -1,0 +1,59 @@
+﻿/* colors */
+:root {
+    /* General text black - written in black or if necessary in different shades of gray. They also serve as background colors. */
+    --general-text-black100: #000000;
+    --general-text-black080: #333333;
+    --general-text-black060: #878787;
+    --general-text-black040: #b3b3b4;
+    --general-text-black020: #d1d3d4;
+    --general-text-black010: #e6e6e6;
+    --general-text-black005: #f2f3f3;
+    --general-text-black003: #f6f8f8;
+
+    /* Headings can be highlighted in violett. The light tones are background colors */
+    --headline100: #4b1446;
+    --headline020: #dbd0da;
+    --headline010: #ede8ed;
+    --headline005: #f8f4f2;
+
+    /* "PCM-RED" Everything that can be clicked / selected, or where is a possibility of action behind it */
+    --pcm-V100: #4b1446;
+    --pcm-red: #7b204f;
+    --pcm-pink: #ef407A;
+
+    /* Active link */
+    --link-active100: #faa61a;
+    --link-active020: #feedd1;
+    --link-active010: #fff6e8;
+    --link-active005: #fdfaf4;
+
+    /* These are signal colors to indicate hints, feedback, changes or faults. The bright tones sign background colors */
+    --signal-color100: #ef4070;
+    --signal-color020: #fcd9e2;
+    --signal-color010: #fdecf1;
+    --signal-color005: #fbf6f7;
+
+    /* Traffic light colors only serves to indicate the availability and like */
+    --traffic-light-red: #cc0000;
+    --traffic-light-yellow: #ffd900;
+    --traffic-light-green: #13bf00;
+
+    /* Traffic light background colors */
+    --traffic-light-background-red: #fea6e6;
+    --traffic-light-background-yellow: #fffbe5;
+    --traffic-light-background-green: #e7f9e6;
+    --validation-error-color: #ff3636;
+    --validation-success-color: #6ec73d;
+
+    /* primary colors */
+    --primary-darkred-color: #7b204f;
+    --primary-orange-color: #faa61a;
+
+    /* secondary colors */
+    --secondary-darkgray-color: #58595b;
+    --secondary-lightgray-color: #d1d3d4;
+    --secondary-textgray-color: #808080;
+    --secondary-yellow-color: #fff200;
+    --secondary-violett-color: #2e364e;
+    --secondary-pink-color: #ef4070;
+}

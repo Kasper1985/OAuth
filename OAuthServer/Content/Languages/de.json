@@ -1,4 +1,13 @@
 {
+  "GENERAL": {
+    "APPLICATIONS": "Programmauswahl",
+    "REQUIREMENTS": {
+      "HEADER": "Requirements"
+    },
+    "NEWS": {
+      "RECENT-TOPICS": "Aktuelle Informationen"
+    }
+  },
   "USER-MENU": {
     "CLIENTS": "Applikationen",
     "USER-DATA": "Benutzerdaten",
@@ -7,8 +16,22 @@
   "ACCOUNT": {
     "PERMISSIONS": "Applikationen, die Zugriff auf Ihr Konto haben",
     "LOGIN": {
+      "USER-NAME": "Benutzername",
+      "PASSWORD": "Passwort",
       "HEADER": "Anmeldung",
-      "LOGIN": "Anmelden"
+      "LOGIN": "Anmelden",
+      "PASSWORD-LOST": "Passwort vergessen",
+      "REMOTE-ASSISTANCE": "Fernwartung",
+      "REQUIREMENTS": "Systemvoraussetzungen"
+    },
+    "PASSWORD": {
+      "HINT-HEADER": "Neues Passwort anfordern",
+      "HINT-TEXT": "Sie haben Ihr Passwort vergessen? Bitte geben Sie hier Name, Vorname und Ihr E-Mail-Adresse an, um ein neues Passwort zu erhalten.",
+      "NAME": "Name",
+      "NAME-FIRST": "Vorname",
+      "EMAIL": "E-Mail",
+      "REQUEST": "Passwort anfordern",
+      "BACK": "Zurück zum Login"
     },
     "LOGOUT": {
       "MESSAGE-MAIN": "Sie wurden erfolgreich abgemeldet",
@@ -35,6 +58,11 @@
       "EMAIL": {
         "HEADER": "EMail"
       }
+    }
+  },
+  "APPLICATIONS": {
+    "FORM": {
+      "TEXT-PLACEHOLDER": "Bitte Suchbegriff eingeben..."
     }
   },
   "CLIENT": {
@@ -67,13 +95,14 @@
   },
   "NOTIFICATION": {
     "ACCESS-DENIED": "Zugriff verweigert",
-    "LOGIN-FAILED": "Anmeldung ist fehlgeschlagen",
-    "CREATE-FAILED": "Erstellung ist fehlgeschlagen",
-    "SAVE-FAILED": "Speichern ist fehlgeschlagen",
-    "DELETE-FAILED": "Löschen ist fehlgeschlagen",
+    "LOGIN-FAILED": "Anmeldung fehlgeschlagen",
+    "CREATE-FAILED": "Erstellung fehlgeschlagen",
+    "SAVE-FAILED": "Speichern fehlgeschlagen",
+    "DELETE-FAILED": "Löschen fehlgeschlagen",
     "SAVE-SUCCESS": "Erfolgreich gespeichert",
     "CREATE-SUCCESS": "Erfolgreich erstellt",
-    "DELETE-SUCCESS": "Erfolgreich gelöscht"
+    "DELETE-SUCCESS": "Erfolgreich gelöscht",
+    "PASSWORD-FAILED": "Passworterstellung ist fehlgeschlagen"
   },
   "COMMAND": {
     "ADD": "Hinzufügen",

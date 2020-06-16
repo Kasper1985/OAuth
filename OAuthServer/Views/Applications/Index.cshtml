@@ -1,15 +1,65 @@
-﻿@{
-    ViewBag.Title = "Applications";
+﻿@using OAuthServer.Models;
+@using OAuthServer.Content.Languages;
 
+@{
+    ViewBag.Title = Translator.Instance.Translate("GENERAL.APPLICATIONS");
 }
 
 @Styles.Render("~/Content/Styles/Applications.css")
+@Scripts.Render("~/Content/Scripts/applications.js")
 
-<div class="applications">
-    @{ 
-        foreach (var app in ViewData["applications"] as List<OAuthServer.Models.Application>)
-        {
-            @Html.Partial("PartialTile", app)
+<nav class="side-nav">
+    <span class="expander pcm-ol-winkel-li" onclick="toggleSideNav(this.parentElement)"></span>
+    <section class="apps">
+        <ul>
+            @{ 
+                foreach (var app in ViewData["applications"] as List<Application>)
+                {
+                    @Html.Partial("PartialLink", app)
+                }
+            }
+        </ul>
+    </section>
+    <section class="general">
+        <ul>
+            @{ 
+                foreach (var link in ViewData["general"] as List<Application>)
+                {
+                    @Html.Partial("PartialLink", link)
+                }
+            }
+        </ul>
+    </section>
+</nav>
+
+<section class="content">
+    <div class="applications">
+        @{
+            foreach (var app in ViewData["applications"] as List<Application>)
+            {
+                @Html.Partial("PartialTile", app)
+            }
         }
-    }
-</div>
+    </div>
+    <div class="news">
+        @using (Html.BeginForm("Index", "Applications", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <input id="text" name="text" placeholder="@Translator.Instance.Translate("APPLICATIONS.FORM.TEXT-PLACEHOLDER")" />
+            <span class="pcm-ol-suchen-lupe-li"></span>
+        }
+
+        <div class="general-title">
+            <span>@Translator.Instance.Translate("GENERAL.NEWS.RECENT-TOPICS")</span>
+            <span class="pcm-ol-winkel-oben" onclick="toggleRecentTopics(this.parentElement)"></span>
+        </div>
+        <div class="all-news">
+            @{
+                foreach (var newsBundle in ViewData["news"] as List<NewsBundle>)
+                {
+                    @Html.Partial("PartialNewsBundle", newsBundle)
+                }
+            }
+        </div>
+    </div>
+</section>

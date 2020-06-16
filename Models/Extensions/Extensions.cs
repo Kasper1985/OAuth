@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Models.Enumerations;
 
 namespace Models.Extensions
 {
@@ -18,5 +13,7 @@ namespace Models.Extensions
 
             return default;
         }
+
+        public static bool In(this int number, params int[] values) => values.Contains(number);
     }
 }

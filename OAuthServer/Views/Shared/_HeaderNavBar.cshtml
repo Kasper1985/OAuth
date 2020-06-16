@@ -1,20 +1,31 @@
-﻿@using OAuthServer.Content.Languages;
+﻿@using System.Security.Claims;
+@using System.Security.Principal;
 
-<div class="navbar navbar-fixed-top">
-    <div class="container">
+@using OAuthServer.Extensions;
+@using OAuthServer.Content.Languages;
+
+@{ 
+    var identity = (IIdentity)User.Identity;
+    var userNameFirst = identity.GetClaimValue<string>(ClaimTypes.Name);
+    var userNameLast = identity.GetClaimValue<string>(ClaimTypes.Surname);
+}
+
+<div class="load-bar"></div>
+<div class="navbar">
+    <section>
         <a href="Applications/Index">
-            <div class="logo">
-            </div>
+            <img class="logo" src="~/Content/Images/logo.png" alt="PCM" />
+            @*<div class="logo"></div>*@
         </a>
-        <div class="navbar-header">
-            <div class="dropdown">
-                <img src="~/Content/Images/avatar-icon.png" alt="user" class="dd-button avatar"/>
-                <ul class="dd-menu">
-                    <li>@Html.ActionLink(Translator.Instance.Translate("USER-MENU.CLIENTS"), "Index", "Client")</li>
-                    <li>@Html.ActionLink(Translator.Instance.Translate("USER-MENU.USER-DATA"), "Index", "Account")</li>
-                    <li>@Html.ActionLink(Translator.Instance.Translate("USER-MENU.LOGOUT"), "Logout", "Account")</li>
-                </ul>
-            </div>
+    </section>
+
+    <section>
+        <div class="user-data">
+            <span>@userNameFirst</span>
+            <span>@userNameLast</span>
         </div>
-    </div>
+        <div class="settings">
+            <span class="pcm-ol-optionen"></span>
+        </div>
+    </section>
 </div>

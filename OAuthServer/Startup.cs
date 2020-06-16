@@ -39,7 +39,6 @@ namespace OAuthServer
             });
 
             app.UseWebApi(config);
-
         }
     }
 }
