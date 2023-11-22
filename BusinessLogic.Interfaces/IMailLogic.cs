@@ -6,6 +6,6 @@ namespace BusinessLogic.Interfaces
 {
     public interface IMailLogic
     {
-        Task SendPasswordMailAsync(string password, User user, string ccode = "de");
+        Task SendPasswordMailAsync(string password, User user, string cCode = "de");
     }
 }

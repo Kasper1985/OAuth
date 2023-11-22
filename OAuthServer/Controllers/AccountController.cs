@@ -8,8 +8,6 @@ using Microsoft.Owin.Security;
 
 using OAuthServer.Models;
 using OAuthServer.Extensions;
-
-using Models;
 using OAuthServer.Models.Enumerations;
 
 using BusinessLogic.Interfaces;
@@ -30,8 +28,8 @@ namespace OAuthServer.Controllers
         [Route("index")]
         public async Task<ActionResult> Index()
         {
-            ViewData["auth-data"] = new AuthData(await this.AuthenticationManager.AuthenticateAsync("PCM"));
-            User user = await this.userLogic.GetUserAsync(this.User.Identity.GetClaimValue<int>(ClaimTypes.NameIdentifier));
+            ViewData["auth-data"] = new AuthData(await AuthenticationManager.AuthenticateAsync("PCM"));
+            var user = await userLogic.GetUserAsync(User.Identity.GetClaimValue<int>(ClaimTypes.NameIdentifier));
 
             return View(user);
         }
@@ -41,10 +39,10 @@ namespace OAuthServer.Controllers
         [Route("login")]
         public ActionResult LoginGET()
         {
-            if (this.User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated)
                 return RedirectToAction("Index", "Applications");
 
-            ViewData["password"] = this.Request["requestPassword"];
+            ViewData["password"] = Request["requestPassword"];
 
             return View("login");
         }
@@ -55,33 +53,33 @@ namespace OAuthServer.Controllers
         [Route("login")]
         public async Task<ActionResult> LoginPOST()
         {
-            if (!string.IsNullOrEmpty(Request.Form.Get("submit.login")))
-                try
+            if (string.IsNullOrEmpty(Request.Form.Get("submit.login"))) return View("login");
+            try
+            {
+                var user = await userLogic.LoginAsync(Request.Form["login"], Request.Form["password"]);
+                if (user != null)
                 {
-                    User user = await this.userLogic.LoginAsync(Request.Form["login"], Request.Form["password"]);
-                    if (user != null)
+                    var identity = new ClaimsIdentity(new[]
                     {
-                        var identiy = new ClaimsIdentity(new[]
-                        {
-                            new Claim(ClaimTypes.NameIdentifier, user.ID.ToString()),
-                            new Claim(ClaimTypes.Name, user.NameFirst),
-                            new Claim(ClaimTypes.Surname, user.NameLast),
-                            new Claim(ClaimTypes.HomePhone, user.Phone),
-                            new Claim(ClaimTypes.Email, user.EMail),
-                            new Claim(ClaimTypes.Role, user.ID == 62018 ? "SuperUser" : "User")
-                        }, "PCM");
-                        this.AuthenticationManager.SignIn(new AuthenticationProperties(), identiy);
+                        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                        new Claim(ClaimTypes.Name, user.NameFirst),
+                        new Claim(ClaimTypes.Surname, user.NameLast),
+                        new Claim(ClaimTypes.HomePhone, user.Phone),
+                        new Claim(ClaimTypes.Email, user.EMail),
+                        new Claim(ClaimTypes.Role, user.Id == 62018 ? "SuperUser" : "User")
+                    }, "PCM");
+                    AuthenticationManager.SignIn(new AuthenticationProperties(), identity);
 
-                        if (!Request.QueryString.HasKeys())
-                            return RedirectToAction("Index", "Applications");
-                    }
-                    else
-                        ViewData["notification"] = ("NOTIFICATION.ACCESS-DENIED", "Wrong credentials or the DB is in an update mode.", Status.ERROR);
+                    if (!Request.QueryString.HasKeys())
+                        return RedirectToAction("Index", "Applications");
                 }
-                catch (Exception ex)
-                {
-                    ViewData["notification"] = ("NOTIFICATION.LOGIN-FAILED", ex.ToString(), Status.ERROR);
-                }
+                else
+                    ViewData["notification"] = ("NOTIFICATION.ACCESS-DENIED", "Wrong credentials or the DB is in an update mode.", Status.ERROR);
+            }
+            catch (Exception ex)
+            {
+                ViewData["notification"] = ("NOTIFICATION.LOGIN-FAILED", ex.ToString(), Status.ERROR);
+            }
 
             return View("login");
         }
@@ -96,15 +94,13 @@ namespace OAuthServer.Controllers
             {
                 if (!string.IsNullOrEmpty(Request.Form.Get("submit.password")))
                 {
-                    await this.userLogic.GenerateNewPasswodAsync(Request.Form["email"], Request.Form["name"], Request.Form["name-first"]);
+                    await userLogic.GenerateNewPasswordAsync(Request.Form["email"], Request.Form["name"], Request.Form["name-first"]);
                     return RedirectToAction("login");
                 }
-                else
-                {
-                    ViewData["notification"] = ("NOTIFICATION.PASSWORD-FAILED", "Wrong form was sent from the client", Status.ERROR);
-                    ViewData["password"] = "True";
-                    return View("login");
-                }
+
+                ViewData["notification"] = ("NOTIFICATION.PASSWORD-FAILED", "Wrong form was sent from the client", Status.ERROR);
+                ViewData["password"] = "True";
+                return View("login");
             }
             catch (Exception ex)
             {
@@ -118,7 +114,7 @@ namespace OAuthServer.Controllers
         [Route("logout")]
         public ActionResult Logout()
         {
-            this.AuthenticationManager.SignOut("PCM");
+            AuthenticationManager.SignOut("PCM");
             return View();
         }
     }

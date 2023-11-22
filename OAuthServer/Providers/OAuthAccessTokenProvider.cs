@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 using Microsoft.Owin.Security.Infrastructure;
 
@@ -9,8 +8,8 @@ namespace OAuthServer.Providers
     {
         public void Create(AuthenticationTokenCreateContext context) => CreateAccessToken(context);
         public void Receive(AuthenticationTokenReceiveContext context) => ReceiveAccessToken(context);
-        public Task CreateAsync(AuthenticationTokenCreateContext context) => Task.Run(() => this.CreateAccessToken(context));
-        public Task ReceiveAsync(AuthenticationTokenReceiveContext context) => Task.Run(() => this.ReceiveAccessToken(context));
+        public Task CreateAsync(AuthenticationTokenCreateContext context) => Task.Run(() => CreateAccessToken(context));
+        public Task ReceiveAsync(AuthenticationTokenReceiveContext context) => Task.Run(() => ReceiveAccessToken(context));
 
 
         private void CreateAccessToken(AuthenticationTokenCreateContext context)

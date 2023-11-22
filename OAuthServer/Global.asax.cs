@@ -13,9 +13,9 @@ namespace OAuthServer
 
         protected void  Application_AuthenticateRequest(object sender, EventArgs e)
         {
-            AuthenticateResult ticket = this.AuthenticationManager.AuthenticateAsync("PCM").Result;
+            var ticket = this.AuthenticationManager.AuthenticateAsync("PCM").Result;
             if (ticket?.Identity != null)
-                HttpContext.Current.User = new GenericPrincipal(ticket.Identity, new string[0]);
+                HttpContext.Current.User = new GenericPrincipal(ticket.Identity, Array.Empty<string>());
         }
 
         protected void Application_EndRequest(object sender, EventArgs e)

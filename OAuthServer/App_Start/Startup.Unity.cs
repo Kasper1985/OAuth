@@ -20,9 +20,9 @@ namespace OAuthServer
         {
             var container = new UnityContainer();
 
-            string connectionString = ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["DB"]].ConnectionString;
-            string SMTPSettings = ConfigurationManager.AppSettings["SMTP"];
-            string PCMEmail = ConfigurationManager.AppSettings["PCM-EMail"];
+            var connectionString = ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["DB"]].ConnectionString;
+            var SMTPSettings = ConfigurationManager.AppSettings["SMTP"];
+            var PCMEmail = ConfigurationManager.AppSettings["PCM-EMail"];
 
             // Business logic implementations
             container.RegisterType<IOAuth2Logic, OAuth2Logic>()

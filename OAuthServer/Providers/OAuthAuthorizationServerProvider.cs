@@ -118,7 +118,7 @@ namespace OAuthServer.Providers
                 var oauthLogic = this.resolver.GetService(typeof(IOAuth2Logic)) as IOAuth2Logic;
 
                 Client client = await oauthLogic.GetClientAsync(context.ClientId);
-                if (string.Compare(client.URI.TrimEnd('/'), context.RedirectUri.TrimEnd('/'), StringComparison.CurrentCultureIgnoreCase) == 0)
+                if (string.Compare(client.Uri.TrimEnd('/'), context.RedirectUri.TrimEnd('/'), StringComparison.CurrentCultureIgnoreCase) == 0)
                     context.Validated(context.RedirectUri);
             }
             catch (AmbiguousClientException) { context.SetError("invalid_client", $"There are more than one client with the id: '{context.ClientId}'."); }
@@ -151,7 +151,7 @@ namespace OAuthServer.Providers
                 {
                     var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.NameIdentifier, user.ID.ToString()),
+                        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                         new Claim("ClientId", context.ClientId),
                     };
                     if (context.Scope.Count > 0)
@@ -177,7 +177,7 @@ namespace OAuthServer.Providers
                 Client client = await oauthLogic.GetClientAsync(context.ClientId);
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.NameIdentifier, client.ID),
+                    new Claim(ClaimTypes.NameIdentifier, client.Id),
                     new Claim("Scope", "client")
                 };
 
@@ -279,8 +279,8 @@ namespace OAuthServer.Providers
                 await oauthLogic.RemoveLastRefreshTokenAsync(userID, this.ClientID);
                 await oauthLogic.SaveLastRefreshTokenAsync(new LastRefreshToken
                 {
-                    UserID = userID,
-                    ClientID = this.ClientID,
+                    UserId = userID,
+                    ClientId = this.ClientID,
                     RefreshToken = ((OAuthRefreshTokenProvider)context.Options.RefreshTokenProvider).LastRefreshToken,
                     ExpireTime = ((OAuthRefreshTokenProvider)context.Options.RefreshTokenProvider).ExpireTime
                 });
@@ -294,7 +294,7 @@ namespace OAuthServer.Providers
             var oauthLogic = this.resolver.GetService(typeof(IOAuth2Logic)) as IOAuth2Logic;
             await oauthLogic.SavePKCEAsync(context.AuthorizationCode, new PKCE
             {
-                ClientID = context.Request.Query["client_id"],
+                ClientId = context.Request.Query["client_id"],
                 CodeChallenge = Encoding.UTF8.GetString(Convert.FromBase64String(context.Request.Query["code_challenge"])),
                 CodeChallengeMethod = (EncryptionMethod)Enum.Parse(typeof(EncryptionMethod), context.Request.Query["code_challenge_method"])
             });

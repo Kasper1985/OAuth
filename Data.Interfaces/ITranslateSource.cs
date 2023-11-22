@@ -4,6 +4,6 @@ namespace Data.Interfaces
 {
     public interface ITranslateSource
     {
-        Task<string> GetTranslationAsync(string text, string ccode);
+        Task<string> GetTranslationAsync(string text, string cCode);
     }
 }

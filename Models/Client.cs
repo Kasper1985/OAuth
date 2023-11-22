@@ -4,26 +4,23 @@ namespace Models
 {
     public class Client
     {
-        public string ID { get; set; } = "";
+        public string Id { get; set; } = "";
         public string Secret { get; set; }
-        public string URI { get; set; } = "";
+        public string Uri { get; set; } = "";
         public string Name { get; set; }
         public string Developer { get; set; }
         public ClientType Type { get; set; }
-        public int UserID { get; set; }
+        public int UserId { get; set; }
 
         public static bool operator ==(Client left, Client right)
         {
-            if (object.ReferenceEquals(left, null))
-                return object.ReferenceEquals(right, null);
-
-            return left.Equals(right);
+            return left?.Equals(right) ?? ReferenceEquals(right, null);
         }
 
         public static bool operator !=(Client left, Client right)
         {
-            if (object.ReferenceEquals(left, null))
-                return !object.ReferenceEquals(right, null);
+            if (ReferenceEquals(left, null))
+                return !ReferenceEquals(right, null);
 
             return !left.Equals(right);
         }
@@ -34,14 +31,11 @@ namespace Models
                 return false;
 
             var client = obj as Client;
-            if (client == null)
-                return false;
-
-            return this.ID.Equals(client.ID);
+            return client != null && Id.Equals(client.Id);
         }
 
-        public override int GetHashCode() => this.ID.GetHashCode() ^ this.URI.GetHashCode();
+        public override int GetHashCode() => Id.GetHashCode() ^ Uri.GetHashCode();
 
-        public override string ToString() => $"{{{this.ID}}} {this.Name}: {this.URI}";
+        public override string ToString() => $"{{{Id}}} {Name}: {Uri}";
     }
 }

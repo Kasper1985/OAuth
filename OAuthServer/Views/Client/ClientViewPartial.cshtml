@@ -6,14 +6,14 @@
 <div class="wrap-collapsible collapsed">
     <div class="collapsible client-header-info">
         <div>@Model.Name</div>
-        <div>@Model.URI</div>
+        <div>@Model.Uri</div>
         <div class="flex-span"></div>
         <div class="collapsible-symbol"></div>
     </div>
     <div class="collapsible-content client-detailed-info">
         <div class="client-property">
             <div><h4>ID</h4></div>
-            <div><span>@Html.DisplayFor(model => model.ID)</span></div>
+            <div><span>@Html.DisplayFor(model => model.Id)</span></div>
         </div>
         <div class="client-property">
             <div><h4>@Translator.Instance.Translate("CLIENT.CLIENTS.FORM.TYPE")</h4></div>
@@ -37,10 +37,10 @@
             </div>
         </div>
 
-        @if (Model.UserID == (int)ViewData["userId"])
+        @if (Model.UserId == (int)ViewData["userId"])
         {
             <div class="client-actions">
-                @Html.ActionLink(@Translator.Instance.Translate("COMMAND.DELETE"), "Delete", "Client", new { id = Model.ID }, new { @class = "custom-button red" })
+                @Html.ActionLink(@Translator.Instance.Translate("COMMAND.DELETE"), "Delete", "Client", new { id = Model.Id }, new { @class = "custom-button red" })
             </div>
         }
     </div>

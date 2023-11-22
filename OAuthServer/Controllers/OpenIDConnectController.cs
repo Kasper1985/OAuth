@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
@@ -33,43 +32,43 @@ namespace OAuthServer.Controllers
         [Route("userinfo")]
         public async Task<Dictionary<string, object>> GetUserInfoAsync()
         {
-            User user = await this.userLogic.GetUserAsync(this.User.Identity.GetClaimValue<int>(ClaimTypes.NameIdentifier));
+            var user = await userLogic.GetUserAsync(User.Identity.GetClaimValue<int>(ClaimTypes.NameIdentifier));
 
             var userInfo = new Dictionary<string, object>();
-            if (this.User.Identity.TryGetClaimValue("Scope", out string scopesCollection) && !string.IsNullOrEmpty(scopesCollection))
-            {
-                string[] scopes = scopesCollection.Split(' ');
-                if (!scopes.Contains("openid", StringComparer.CurrentCultureIgnoreCase))
-                    return userInfo;
+            if (!User.Identity.TryGetClaimValue("Scope", out string scopesCollection) ||
+                string.IsNullOrEmpty(scopesCollection)) return userInfo;
+            
+            var scopes = scopesCollection.Split(' ');
+            if (!scopes.Contains("openid", StringComparer.CurrentCultureIgnoreCase))
+                return userInfo;
 
-                // Open ID info
-                userInfo.Add("iss", Request.RequestUri.GetLeftPart(UriPartial.Authority));
-                if (this.User.Identity.TryGetClaimValue(ClaimTypes.NameIdentifier, out int subject))
-                    userInfo.Add("sub", subject);
-                if (this.User.Identity.TryGetClaimValue("ClientId", out string audience))
-                    userInfo.Add("aud", audience);
-                if (this.User.Identity.TryGetClaimValue("IssuedUtc", out ulong issuedAt))
-                    userInfo.Add("iat", issuedAt);
-                if (this.User.Identity.TryGetClaimValue("ExpiresUtc", out ulong expiresAt))
-                    userInfo.Add("exp", expiresAt);
+            // Open ID info
+            userInfo.Add("iss", Request.RequestUri.GetLeftPart(UriPartial.Authority));
+            if (User.Identity.TryGetClaimValue(ClaimTypes.NameIdentifier, out int subject))
+                userInfo.Add("sub", subject);
+            if (User.Identity.TryGetClaimValue("ClientId", out string audience))
+                userInfo.Add("aud", audience);
+            if (User.Identity.TryGetClaimValue("IssuedUtc", out ulong issuedAt))
+                userInfo.Add("iat", issuedAt);
+            if (User.Identity.TryGetClaimValue("ExpiresUtc", out ulong expiresAt))
+                userInfo.Add("exp", expiresAt);
 
-                foreach (string scope in scopes)
-                    switch (true)
-                    {
-                        case bool b when scope.Equals("email", StringComparison.CurrentCultureIgnoreCase):
-                            userInfo.Add("email", user.EMail);
-                            break;
+            foreach (var scope in scopes)
+                switch (true)
+                {
+                    case bool _ when scope.Equals("email", StringComparison.CurrentCultureIgnoreCase):
+                        userInfo.Add("email", user.EMail);
+                        break;
 
-                        case bool b when scope.Equals("profile", StringComparison.CurrentCultureIgnoreCase):
-                            userInfo.Add("salutation", user.Salutation);
-                            userInfo.Add("title", user.Title);
-                            userInfo.Add("name_first", user.NameFirst);
-                            userInfo.Add("name_last", user.NameLast);
-                            userInfo.Add("phone", user.Phone);
-                            userInfo.Add("fax", user.Fax);
-                            break;
-                    }
-            }
+                    case bool _ when scope.Equals("profile", StringComparison.CurrentCultureIgnoreCase):
+                        userInfo.Add("salutation", user.Salutation);
+                        userInfo.Add("title", user.Title);
+                        userInfo.Add("name_first", user.NameFirst);
+                        userInfo.Add("name_last", user.NameLast);
+                        userInfo.Add("phone", user.Phone);
+                        userInfo.Add("fax", user.Fax);
+                        break;
+                }
             return userInfo;
         }
 
@@ -78,8 +77,8 @@ namespace OAuthServer.Controllers
         [Route("metadata")]
         public async Task<Dictionary<string, object>> GetServerMetadata()
         {
-            IEnumerable<Scope> scopes = await this.oauth2Logic.GetScopesAsync(Translator.Instance.Language);
-            RSAParameters publicKey = new OAuthIDTokenProvider().PublicKey;
+            var scopes = await oauth2Logic.GetScopesAsync(Translator.Instance.Language);
+            var publicKey = new OAuthIDTokenProvider().PublicKey;
             return new Dictionary<string, object>
             {
                 { "authorization_endpoint", Paths.AUTHORIZE },

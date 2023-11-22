@@ -11,21 +11,21 @@ namespace Data.MSSQL
         public TranslateSource(string connectionString) : base(connectionString) { }
 
         #region Interface functions
-        public async Task<string> GetTranslationAsync(string text, string ccode)
+        public async Task<string> GetTranslationAsync(string text, string cCode)
         {
-            using (SqlConnection con = new SqlConnection(this.connectionString))
+            using (var con = new SqlConnection(ConnectionString))
             {
-                string query = "SELECT BezValue " +
-                               "FROM tblStPortalTranslator " +
-                               "WHERE BezName = @text AND CCode = @ccode";
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                const string query = "SELECT BezValue " +
+                                     "FROM tblStPortalTranslator " +
+                                     "WHERE BezName = @text AND CCode = @ccode";
+                using (var cmd = new SqlCommand(query, con))
                 {
                     cmd.Parameters.AddWithValue("text", text);
-                    cmd.Parameters.AddWithValue("ccode", ccode);
+                    cmd.Parameters.AddWithValue("ccode", cCode);
 
                     await con.OpenAsync();
                     con.ChangeDatabase("CRM");
-                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync(CommandBehavior.CloseConnection))
+                    using (var reader = await cmd.ExecuteReaderAsync(CommandBehavior.CloseConnection))
                     {
                         int ordinal;
                         reader.Read();

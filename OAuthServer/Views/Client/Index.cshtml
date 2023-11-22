@@ -18,7 +18,7 @@
         {
             foreach (var client in ViewData["clients"] as IEnumerable<Client>)
             {
-                Html.RenderPartial("ClientViewPartial", client, new ViewDataDictionary { { "userScopes", userScopes.Where(us => us.ClientID == client.ID) }, { "userId", ViewData["userId"] } });
+                Html.RenderPartial("ClientViewPartial", client, new ViewDataDictionary { { "userScopes", userScopes.Where(us => us.ClientId == client.Id) }, { "userId", ViewData["userId"] } });
             }
         }
         else

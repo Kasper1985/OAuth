@@ -12,7 +12,7 @@ namespace OAuthServer.Controllers
     {
         public ActionResult Index()
         {
-            List<Application> applications = new List<Application>();
+            var applications = new List<Application>();
 
             string[] erp = ConfigurationManager.AppSettings[nameof(erp)].Split(';');
             applications.Add(new Application { Title = erp[0], Url = erp[1], Icon = "pcm-ol-lager-bestand" });

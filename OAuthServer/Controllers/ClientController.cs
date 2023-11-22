@@ -2,11 +2,7 @@
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
-
-using Microsoft.Owin.Security;
-
 using Models;
 using Models.Enumerations;
 
@@ -34,12 +30,12 @@ namespace OAuthServer.Controllers
             // Clients registered by user
             int userId = this.User.Identity.GetClaimValue<int>(ClaimTypes.NameIdentifier);
 
-            var ownClientsTask = this.oauth2Logic.FindClientsAsync(userId);
-            var userScopesTask = this.oauth2Logic.GetAllUserScopesAsync(userId, Translator.Instance.Language);
+            var ownClientsTask = oauth2Logic.FindClientsAsync(userId);
+            var userScopesTask = oauth2Logic.GetAllUserScopesAsync(userId, Translator.Instance.Language);
             await Task.WhenAll(ownClientsTask, userScopesTask);
 
             ViewData["userScopes"] = userScopesTask.Result;
-            ViewData["clients"] = ownClientsTask.Result.Concat(await this.oauth2Logic.FindClientsAsync(userScopesTask.Result.Select(us => us.ClientID).Distinct().ToArray())).Distinct();
+            ViewData["clients"] = ownClientsTask.Result.Concat(await oauth2Logic.FindClientsAsync(userScopesTask.Result.Select(us => us.ClientId).Distinct().ToArray())).Distinct();
             ViewData["userId"] = userId;
 
             if (TempData["notification"] != null)
@@ -57,7 +53,7 @@ namespace OAuthServer.Controllers
         {
             var client = new Client
             {
-                UserID = this.User.Identity.GetClaimValue<int>(ClaimTypes.NameIdentifier),
+                UserId = User.Identity.GetClaimValue<int>(ClaimTypes.NameIdentifier),
                 Type = ClientType.Public
             };
             return View("Add", client);
@@ -69,16 +65,14 @@ namespace OAuthServer.Controllers
         {
             try
             {
-                if (await this.oauth2Logic.RegisterClientAsync(client) != null)
+                if (await oauth2Logic.RegisterClientAsync(client) != null)
                 {
                     TempData["notification"] = ("NOTIFICATION.CREATE-SUCCESS", "", Status.SUCCESS);
                     return RedirectToAction("Index");
                 }
-                else
-                {
-                    ViewData["notification"] = ("NOTIFICATION.CREATE-FAILED", "Could not create or save the new client into DB", Status.ERROR);
-                    return View("Add", client);
-                }
+
+                ViewData["notification"] = ("NOTIFICATION.CREATE-FAILED", "Could not create or save the new client into DB", Status.ERROR);
+                return View("Add", client);
             }
             catch (Exception ex)
             {
@@ -93,7 +87,7 @@ namespace OAuthServer.Controllers
         {
             try
             {
-                await this.oauth2Logic.RemoveClientAsync(clientId);
+                await oauth2Logic.RemoveClientAsync(clientId);
                 TempData["notification"] = ("NOTIFICATION.DELETE-SUCCESS", "", Status.SUCCESS);
             }
             catch (Exception ex)

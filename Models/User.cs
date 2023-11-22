@@ -2,7 +2,7 @@
 {
     public class User
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public int Salutation { get; set; }
         public string Title { get; set; }
         public string NameFirst { get; set; }
@@ -12,6 +12,6 @@
         public string EMail { get; set; }
 
 
-        public override string ToString() => $"{{{this.ID}}} {this.NameFirst} {this.NameLast}";
+        public override string ToString() => $"{{{Id}}} {NameFirst} {NameLast}";
     }
 }

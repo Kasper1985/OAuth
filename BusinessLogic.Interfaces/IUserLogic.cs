@@ -8,6 +8,6 @@ namespace BusinessLogic.Interfaces
     {
         Task<User> GetUserAsync(int userId);
         Task<User> LoginAsync(string login, string password);
-        Task GenerateNewPasswodAsync(string email, string nameLast = null, string nameFirst = null);
+        Task GenerateNewPasswordAsync(string email, string nameLast = null, string nameFirst = null);
     }
 }

@@ -22,7 +22,7 @@
     @using (Html.BeginForm("Add", "Client", FormMethod.Post, new { @class = "add-client-form" }))
     {
         @Html.AntiForgeryToken()
-        @Html.HiddenFor(model => model.UserID)
+        @Html.HiddenFor(model => model.UserId)
         <div class="client-property">
             <div><h4>@Translator.Instance.Translate("CLIENT.ADD.FORM.NAME")</h4></div>
             <div>@Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "My app" } })</div>
@@ -30,7 +30,7 @@
         <div class="client-property">
             <div><h4>@Translator.Instance.Translate("CLIENT.ADD.FORM.URI")*</h4></div>
             <div>
-                @Html.EditorFor(model => model.URI, new { htmlAttributes = new { placeholder = "https://myapp.com/callback",  required = "", type = "url" }})
+                @Html.EditorFor(model => model.Uri, new { htmlAttributes = new { placeholder = "https://myapp.com/callback",  required = "", type = "url" }})
             </div>
         </div>
         <div class="client-property">

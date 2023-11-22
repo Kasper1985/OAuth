@@ -29,7 +29,7 @@ namespace OAuthServer.Providers
             var oauthLogic = this.resolver.GetService(typeof(IOAuth2Logic)) as IOAuth2Logic;
             oauthLogic.SaveAuthorizationCodeAsync(new AuthCode
             {
-                ClientID = context.Request.Query["client_id"],
+                ClientId = context.Request.Query["client_id"],
                 AuthorizationCode = context.Token,
                 AuthorizationTicket = context.SerializeTicket()
             }).Wait();
@@ -38,12 +38,11 @@ namespace OAuthServer.Providers
         private void ReceiveAuthorizationCode(AuthenticationTokenReceiveContext context)
         {
             var oauthLogic = this.resolver.GetService(typeof(IOAuth2Logic)) as IOAuth2Logic;
-            AuthCode authCode = oauthLogic.FindAuthCodeAsync(context.Token).Result;
-            if (authCode != null)
-            {
-                context.DeserializeTicket(authCode.AuthorizationTicket);
-                oauthLogic.RemoveAuthorizationCodeAsync(authCode.AuthorizationCode).Wait();
-            }
+            var authCode = oauthLogic.FindAuthCodeAsync(context.Token).Result;
+            if (authCode == null)
+                return;
+            context.DeserializeTicket(authCode.AuthorizationTicket);
+            oauthLogic.RemoveAuthorizationCodeAsync(authCode.AuthorizationCode).Wait();
         }
     }
 }

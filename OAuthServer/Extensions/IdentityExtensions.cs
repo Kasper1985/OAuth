@@ -16,7 +16,7 @@ namespace OAuthServer.Extensions
             if (claim == null)
                 throw new ArgumentNullException(nameof(claim), $"Claim '{claimName}' not found.");
 
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(T));
+            var converter = TypeDescriptor.GetConverter(typeof(T));
             if (converter != null)
                 return (T)converter.ConvertFrom(claim.Value);
             else

@@ -35,29 +35,29 @@ namespace OAuthServer.Controllers
                 return View("AuthorizeError");
 
             // Get user and client data
-            int userId = this.User.Identity.GetClaimValue<int>(ClaimTypes.NameIdentifier);
-            string clientId = Request.QueryString.Get("client_id") ?? "";
-            string[] scopesRequested = (Request.QueryString.Get("scope") ?? "").Split(' ');
+            var userId = User.Identity.GetClaimValue<int>(ClaimTypes.NameIdentifier);
+            var clientId = Request.QueryString.Get("client_id") ?? "";
+            var scopesRequested = (Request.QueryString.Get("scope") ?? "").Split(' ');
 
-            var taskUserScopes = this.oauth2Logic.GetUserScopesAsync(userId, clientId, Translator.Instance.Language);
-            var taskScopes = this.oauth2Logic.GetScopesAsync(Translator.Instance.Language, scopesRequested);
-            var taskClient = this.oauth2Logic.GetClientAsync(clientId);
+            var taskUserScopes = oauth2Logic.GetUserScopesAsync(userId, clientId, Translator.Instance.Language);
+            var taskScopes = oauth2Logic.GetScopesAsync(Translator.Instance.Language, scopesRequested);
+            var taskClient = oauth2Logic.GetClientAsync(clientId);
             await Task.WhenAll(taskUserScopes, taskScopes, taskClient);
 
-            IEnumerable<UserScope> userScopes = taskUserScopes.Result?.Where(us => us.Grant);
+            var userScopes = taskUserScopes.Result?.Where(us => us.Grant);
             if (userScopes?.Count() > 0)
             {
-                IEnumerable<string> scopeNamesToRequest = scopesRequested.Except(userScopes.Select(us => us.Scope.Name));
-                IEnumerable<Scope> scopesToRequest = await this.oauth2Logic.GetScopesAsync(Translator.Instance.Language, scopeNamesToRequest.ToArray());
+                var scopeNamesToRequest = scopesRequested.Except(userScopes.Select(us => us.Scope.Name));
+                var scopesToRequest = await this.oauth2Logic.GetScopesAsync(Translator.Instance.Language, scopeNamesToRequest.ToArray());
 
                 if (scopesToRequest.Count() > 0)
                     ViewData["scopes"] = scopesToRequest;
                 else
                 {
-                    var identity = this.User.Identity as ClaimsIdentity;
+                    var identity = User.Identity as ClaimsIdentity;
                     identity = new ClaimsIdentity(identity.Claims, "Bearer", identity.NameClaimType, identity.RoleClaimType);
                     identity.AddClaim(new Claim("Scope", string.Join(" ", scopesRequested)));
-                    this.AuthenticationManager.SignIn(identity);
+                    AuthenticationManager.SignIn(identity);
                 }
             }
             else
@@ -71,28 +71,28 @@ namespace OAuthServer.Controllers
         [Route]
         public async Task<ActionResult> IndexPOST(bool silent = false)
         {
-            int userId = this.User.Identity.GetClaimValue<int>(ClaimTypes.NameIdentifier);
-            string clientId = Request.QueryString.Get("client_id") ?? "";
-            string requestedScopes = Request.QueryString.Get("scope") ?? "";
+            var userId = this.User.Identity.GetClaimValue<int>(ClaimTypes.NameIdentifier);
+            var clientId = Request.QueryString.Get("client_id") ?? "";
+            var requestedScopes = Request.QueryString.Get("scope") ?? "";
 
             if (silent || !string.IsNullOrEmpty(Request.Form.Get("submit.allow")))
             {
                 // Create user scopes to make changes to DB
-                IEnumerable<Scope> scopes = await this.oauth2Logic.GetScopesAsync(Translator.Instance.Language, requestedScopes.Split(' '));
-                UserScope[] userScopes = scopes.Select(s => new UserScope { UserID = userId, ClientID = clientId, Scope = s, Grant = true }).ToArray();
+                var scopes = await oauth2Logic.GetScopesAsync(Translator.Instance.Language, requestedScopes.Split(' '));
+                var userScopes = scopes.Select(s => new UserScope { UserId = userId, ClientId = clientId, Scope = s, Grant = true }).ToArray();
 
                 // Remove existing granted permissions and then save them => Update permissions, if already existing
-                await this.oauth2Logic.RemoveUserScopesAsync(userScopes);
-                await this.oauth2Logic.AddUserScopesAsync(userScopes);
+                await oauth2Logic.RemoveUserScopesAsync(userScopes);
+                await oauth2Logic.AddUserScopesAsync(userScopes);
 
-                var identity = this.User.Identity as ClaimsIdentity;
+                var identity = User.Identity as ClaimsIdentity;
                 identity = new ClaimsIdentity(identity.Claims, "Bearer", identity.NameClaimType, identity.RoleClaimType);
                 identity.AddClaim(new Claim("Scope", requestedScopes));
-                this.AuthenticationManager.SignIn(identity);
+                AuthenticationManager.SignIn(identity);
             }
             else
             {
-                string redirectUri = Request.QueryString.Get("redirect_uri");
+                var redirectUri = Request.QueryString.Get("redirect_uri");
                 if (!string.IsNullOrEmpty(redirectUri))
                     return Redirect(redirectUri);
             }

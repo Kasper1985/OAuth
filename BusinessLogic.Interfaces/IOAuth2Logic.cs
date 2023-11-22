@@ -7,11 +7,11 @@ namespace BusinessLogic.Interfaces
 {
     public interface IOAuth2Logic
     {
-        Task<Client> GetClientAsync(string clientID);
-        Task<IEnumerable<Client>> FindClientsAsync(int? userID);
+        Task<Client> GetClientAsync(string clientId);
+        Task<IEnumerable<Client>> FindClientsAsync(int? userId);
         Task<IEnumerable<Client>> FindClientsAsync(params string[] clientIDs);
         Task<Client> RegisterClientAsync(Client client);
-        Task RemoveClientAsync(string clientID);
+        Task RemoveClientAsync(string clientId);
 
         Task<PKCE> FindPKCEAsync(string authorizationCode);
         Task<AuthCode> FindAuthCodeAsync(string authorizationCode);
@@ -19,14 +19,14 @@ namespace BusinessLogic.Interfaces
         Task SavePKCEAsync(string authorizationCode, PKCE pkce);
         Task RemoveAuthorizationCodeAsync(string authorizationCode);
 
-        Task<LastRefreshToken> GetLastRefreshTokenAsync(int userID, string clientID);
+        Task<LastRefreshToken> GetLastRefreshTokenAsync(int userId, string clientId);
         Task SaveLastRefreshTokenAsync(LastRefreshToken lastRefreshToken);
         Task RemoveLastRefreshTokenAsync(string refreshToken);
-        Task RemoveLastRefreshTokenAsync(int userID, string clientID);
+        Task RemoveLastRefreshTokenAsync(int userId, string clientId);
 
-        Task<IEnumerable<Scope>> GetScopesAsync(string ccode, params string[] names);
-        Task<IEnumerable<UserScope>> GetUserScopesAsync(int userID, string clientID, string ccode);
-        Task<IEnumerable<UserScope>> GetAllUserScopesAsync(int userID, string ccode);
+        Task<IEnumerable<Scope>> GetScopesAsync(string cCode, params string[] names);
+        Task<IEnumerable<UserScope>> GetUserScopesAsync(int userId, string clientId, string cCode);
+        Task<IEnumerable<UserScope>> GetAllUserScopesAsync(int userId, string cCode);
         Task<bool> AddUserScopesAsync(params UserScope[] scopes);
         Task RemoveUserScopesAsync(params UserScope[] userScopes);
     }

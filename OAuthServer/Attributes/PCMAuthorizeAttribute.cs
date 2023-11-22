@@ -9,15 +9,15 @@ namespace OAuthServer.Attributes
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-            IAuthenticationManager authentication = filterContext.HttpContext.GetOwinContext().Authentication;
-            AuthenticateResult ticket = authentication.AuthenticateAsync("PCM").Result;
+            var authentication = filterContext.HttpContext.GetOwinContext().Authentication;
+            var ticket = authentication.AuthenticateAsync("PCM").Result;
             if (!ticket?.Identity.IsAuthenticated ?? true)
                 base.OnAuthorization(filterContext);
         }
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
-            IAuthenticationManager authentication = filterContext.HttpContext.GetOwinContext().Authentication;
+            var authentication = filterContext.HttpContext.GetOwinContext().Authentication;
             authentication.Challenge("PCM");
         }
     }

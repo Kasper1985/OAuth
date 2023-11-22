@@ -4,8 +4,8 @@ namespace Data.MSSQL
 {
     public abstract class SourceBase
     {
-        protected readonly string connectionString;
+        protected readonly string ConnectionString;
 
-        protected SourceBase(string connectionString) => this.connectionString = connectionString ?? throw new ArgumentNullException(nameof(connectionString));
+        protected SourceBase(string connectionString) => ConnectionString = connectionString ?? throw new ArgumentNullException(nameof(connectionString));
     }
 }
